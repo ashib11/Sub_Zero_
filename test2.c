@@ -5,12 +5,17 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    int arr[n][n];
+    int arr[n][n], y = 1, x = 1;
     for (int i = 0; i < n; i++)
+    {
+        x = y;
         for (int j = 0; j < n; j++)
         {
-            arr[i][j] = (abs(i - j) + 1);
+            arr[i][j] = x;
+            x *= 2;
         }
+        y *= 2;
+    }
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
