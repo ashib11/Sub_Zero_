@@ -2,8 +2,10 @@
 int main()
 {
     int n, x, z;
-    while ((scanf("%d", &n)) != 0)
+    while (1)
     {
+        scanf("%d", &n);
+        
         x=0,z=0; 
         if (n == 0)
         {

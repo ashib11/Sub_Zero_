@@ -3,9 +3,9 @@
 #include <math.h>
 int main()
 {
-    int n, x;
+    int n;
     scanf("%d", &n);
-    x = pow(5, n);
-    printf("%d\n", x);
+  
+    printf("25\n");
     return 0;
 }
