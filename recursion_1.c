@@ -1,22 +1,56 @@
 #include <stdio.h>
-#include <string.h>
+ 
 int main()
 {
-    int n;
+    int n, i, j, count;
+ 
     scanf("%d", &n);
-    func(n);
-    // 1 2 3 4 5 6 7
-    return 0;
-}
-void func(int n)
-{
-    if (n == 0)
+ 
+    int arr[n];
+ 
+    for(int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+ 
+    if(n == 1)
     {
-        return 1;
+        printf("0");
+        return 0;
     }
-    
-    func(n - 1);
-    printf("%d\n",n); 
-
-  
+ 
+    if(arr[0] == arr[1])
+        count = 0;
+    else
+        count = 1;
+ 
+    for(i = 2; i < n; i++)
+    {
+        for(j = 0; j <= i; j++)
+        {
+            if(arr[j] < arr[i])
+                continue;
+            else
+                break;
+        }
+ 
+        if(j == i)
+            count++;
+    }
+ 
+    for(i = 2; i < n; i++)
+    {
+        for(j = 0; j <= i; j++)
+        {
+            if(arr[j] > arr[i])
+                continue;
+            else
+                break;
+        }
+ 
+        if(j == i)
+            count++;
+    }
+ 
+    printf("%d", count);
+ 
+    return 0;
 }
