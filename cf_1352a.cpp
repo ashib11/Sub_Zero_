@@ -9,14 +9,14 @@ int main()
     int val = 1;
     for (int i = 0; i < n; i++)
     {
-        val = 1,count = 0, pos =0; 
+        val = 1, count = 0, pos = 0;
         cin >> num;
         if (num > 0 && num < 10)
         {
             cout << "1" << endl
                  << num << endl;
         }
-        else if (num % 10 != 0)
+        else 
         {
             while (num)
             {
@@ -29,7 +29,7 @@ int main()
                     ++count;
                     pos++;
                 }
-                val=val*10;
+                val = val * 10;
             }
             cout << count << " " << endl;
             for (int i = 0; i < count; i++)
