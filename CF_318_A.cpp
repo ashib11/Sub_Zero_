@@ -2,49 +2,18 @@
 using namespace std;
 int main()
 {
-    int card_number;
-    cin >> card_number;
-    int arr[card_number];
-    for (int i = 0; i < card_number; i++)
-    {
-        cin >> arr[i];
+    long int a, b;
+    cin >> a >> b;
+    int c =ceil(a/2.0) ;
+    cout << c << endl; 
+    if(c>=b){
+        int ans = b + (b-1); 
+        cout <<"first"<<  ans << endl; 
     }
-    int s = 0, d = 0;
-    int left = 0;
-    int right = card_number - 1;
-    for (int i = 0; i < card_number; i++)
-    {
-        if (i % 2 == 0)
-        {
-            if (arr[left] >= arr[right])
-            {
-                s += arr[left];
-
-                left++;
-            }
-            else if (arr[left] < arr[right])
-            {
-                s += arr[right];
-
-                right--;
-            }
-        }
-        else
-        {
-            if (arr[left] >= arr[right])
-            {
-                d += arr[left];
-
-                left++;
-            }
-            else if (arr[left] < arr[right])
-            {
-                d += arr[right];
-
-                right--;
-            }
-        }
-    }
-    cout << s << " " << d << endl;
+   else {
+    int ans = (b-4) + (b-6); 
+    cout << ans << endl; 
+   }
+    
     return 0;
 }

@@ -12,7 +12,7 @@ int main()
     sort(arr, arr + m);
     for (int i = 0; i <= m - n; i++)
     {
-        dif = max((arr[i + n - 1] - arr[i]), dif);
+        dif = min((arr[i + n - 1] - arr[i]), dif);
     }
     cout << dif << endl; 
     return 0;
