@@ -1,43 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
+void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
 int main()
 {
-    int tc;
-    cin >> tc;
-    while (tc--)
+    fastIO();
+    int n, x;
+    long long int sum, distres = 0;
+    cin >> n >> x;
+    sum = x; 
+    while (n--)
     {
-        string n;
-        cin >> n;
-        int flag = 1;
-        for (int i = 0; i < n.size() - 1; i++)
+        char a;
+        int cup;
+        cin >> a >> cup ; 
+        if (a == '+')
         {
-            if (n[i] != n[i + 1])
-            {
-                if (n[i] > n[i + 1])
-                {
-                    flag = 0;
-                    break;
-                }
-            }
+            sum += cup;
+            
         }
-
-        int s = stoi(n);
-        if (s < 10)
+        else if (a == '-')
         {
-            // cout << "how\n";
-            cout << s << endl;
-        }
-
-        else if (flag == 0)
-        {
-            // cout << "flag = 0\n";
-            cout << 9 + (s / 10) - 1 << endl;
-        }
-        else
-        {
-            // cout << "else\n";
-            cout << 9 + (s / 10) << endl;
+            if (sum > cup)
+                {sum -= cup; }
+            else
+                distres++;
         }
     }
+    cout << sum << " " << distres << "\n";
     return 0;
 }

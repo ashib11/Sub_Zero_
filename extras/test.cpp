@@ -1,21 +1,20 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-	int d, l, r, t;
-	cin >> d;
-	for (int i = 0; i < d; i++)
-	{
-		cin >> l >> r >> t;
-		if (l >= r && l <= t)
-		{
-			cout << "Take second dose now\n";
-		}
-		else if (l > t)
-			cout << "Too Late\n";
-		else
-			cout << "Too Early\n";
-	}
-	return 0;
+const int MOD = 1e9 + 7;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        long long int ans = 0;
+        for (int i = 1; i <= n; i++) {
+            ans = (ans +  i * (n - i + 1)) % MOD; // calculating beauty of each permutation
+        }
+        ans = (ans  * (n-1)) % MOD; // multiplying with (n-1)!
+        cout << ans << endl;
+    }
+    return 0;
 }
