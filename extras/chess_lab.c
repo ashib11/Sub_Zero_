@@ -10,5 +10,6 @@ if ((a+b)%2==0)
 else{
     printf("0\n"); 
 }
+cout << -7%-2 << endl; 
 return 0;
 }

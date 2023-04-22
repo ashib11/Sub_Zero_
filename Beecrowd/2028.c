@@ -1,4 +1,4 @@
-#include<stdio.h>
+ #include<stdio.h>
 int main(){
 int c,count=1,a=1; 
 while (1)

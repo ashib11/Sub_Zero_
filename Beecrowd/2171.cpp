@@ -1,20 +1,23 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int n;
-    while (cin >> n && n != 0) {
-        int fink = 0, woodpecker = 0;
-        for (int i = 1; i <= n; i++) {
-            if (i % 2 == 1) {
-                fink++;
-            } else {
-                woodpecker++;
-                fink++;
-            }
+void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+int main()
+{
+    fastIO();
+    int n; 
+    while (cin >> n && n !=0)
+    {
+        int j =0; 
+        for (int i = 1; j+i <=n; i++)
+        {
+           j+=i; 
         }
-        cout << fink << " " << n - fink << endl;
+        cout << j << " " << n - j << "\n" ; 
     }
+    
     return 0;
 }

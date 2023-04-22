@@ -17,7 +17,7 @@ int main()
     {
         int n;
         cin >> n;
-        check =0; 
+        check = 0;
         printf("fib(%d) = %d calls = %d\n", n, check - 1, fun(n));
     }
     return 0;

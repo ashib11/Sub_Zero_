@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-int arr[41][41];
 
 void fastIO()
 {

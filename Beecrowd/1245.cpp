@@ -9,7 +9,7 @@ int main()
 {
     fastIO();
     int n;
-    while (cin >> n && n!=EOF)
+    while (cin >> n && n != EOF)
     {
         int arr[100] = {0}, brr[100] = {0};
         string str;
@@ -24,15 +24,13 @@ int main()
             else if (str[0] == 'E')
                 brr[size]++;
         }
-        int count =0; 
+        int count = 0;
         for (int i = 30; i < 61; i++)
         {
-            if(arr[i]>brr[i]) 
-                count+=brr[i] ; 
-            else count+=arr[i]; 
+
+            count += min(arr[i], brr[i]);
         }
-        cout << count<< "\n"; 
-        
+        cout << count << "\n";
     }
 
     return 0;

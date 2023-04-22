@@ -1,27 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-void fastIO()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-}
 int main()
 {
-    fastIO();
     int t;
+    long long n, sum;
     cin >> t;
     while (t--)
     {
-        unsigned long long int n; 
-        cin >> n;
-        if (n == 0)
+        scanf("%llu", &n);
+        if (n % 4 == 0)
         {
-            cout << 1 << endl; 
+            cout << "1\n";
+        }
+        else if (n % 4 == 1)
+        {
+            cout << "7\n";
+        }
+        else if (n % 4 == 2)
+        {
+            cout << "9\n";
         }
         else
         {
-            int last_digit = ((int)pow(7, n % 4))%10; 
-            cout << last_digit << "\n";
+            cout << "3\n";
         }
     }
     return 0;

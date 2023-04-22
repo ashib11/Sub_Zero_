@@ -4,14 +4,18 @@ int main()
 {
   int n;
   cin >> n;
-  string a[n];
-  for (int i = 0; i < n; i++)
+  map<string, int> v;
+  while (n--)
   {
-    cin >> a[i];
-  }
-  for (int i = 0; i < n; i++)
-  {
-    cout << i << " " << a[i] << endl;
+    string s;
+    cin >> s;
+    if (v[s] == 0)
+    {
+      cout << "OK\n";
+    }
+    else
+      cout << s << v[s] << "\n";
+    v[s]++;
   }
 
   return 0;

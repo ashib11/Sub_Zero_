@@ -1,30 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
+void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
 int main()
 {
-    int tc;
-    cin >> tc;
-    int a, b;
-    a = b = 0;
-    for (int i = 0; i < tc * tc; i++)
+    fastIO();
+    int n;
+    string s1, s2, s;
+    cin >> n;
+    for (int i = 0; i < n; i++)
     {
-        char x;
-        cin >> x;
-        if (x == 'x')
-        {
-            a++;
-        }
-        cout << x << endl; 
-        if (x == 'o')
-        {
-            b++; 
-        }
+        cin >> s;
+        s1 += s;
     }
-    if (a == b)
+    s2 = s1;
+    reverse(s2.begin(), s2.end());
+    if (s2 == s1)
     {
-        cout << "YES\n";
+        cout << "YES";
     }
     else
-        cout << "NO\n";
+        cout << "NO";
+
     return 0;
 }

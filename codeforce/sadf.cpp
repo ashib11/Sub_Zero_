@@ -1,20 +1,36 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-#define pi 3.1415926535897
 
 int main()
 {
-    int a, b, c;
-    while (scanf("%lf %lf %lf", &a, &b, &c) != EOF)
+    int tc,n;
+    long long int arr[163842],i,j,sum=0,pos;
+    for(i=0;i<=163841;i++)
     {
-        double r, R, s, area_triangle, area_ccircle, area_bcircle;
-        s = (a + b + c) / 2.0;
-        area_triangle = sqrt(s * (s - a) * (s - b) * (s - c));
-        r = area_triangle / s;
-        area_ccircle = pi * r * r;
-        R = (a * b * c) / (sqrt((a + b + c) * (b + c - a) * (c + a - b) * (a + b - c)) * 1.0);
-        area_bcircle = pi * R * R;
-        printf("%.4lf %.4lf %.4lf\n", (area_bcircle - area_triangle), (area_triangle - area_ccircle), area_ccircle);
+        arr[i]=1;
+    }
+    for(i=2;i<=sqrt(163841);i++)
+    {
+        for(j=2;j<=sqrt(163841);j++)
+        {
+            arr[i*j]=0;
+        }
+    }
+    cin>>tc;
+    while(tc--)
+    {
+        sum=0;
+        cin>>n;
+        for(i=2;i<=163841;i++)
+        {
+            sum+=arr[i];
+            if(sum==n)
+            {
+                pos=i;
+                break;
+            }
+        }
+        cout<<pos<<endl;
     }
     return 0;
 }

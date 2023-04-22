@@ -1,20 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MOD = 1e9 + 7;
+int main()
+{
+    string a = "`1234567890-=QWERTYUIOP[]\\ASDFGHJKL;'ZXCVBNM,./";
+   
+    string s;
+    while (getline(cin, s))
+    {
 
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        long long int ans = 0;
-        for (int i = 1; i <= n; i++) {
-            ans = (ans +  i * (n - i + 1)) % MOD; // calculating beauty of each permutation
+        for (int i = 0; i < s.size(); i++)
+        {
+            if (s[i] == ' ')
+                cout << ' ';
+            else
+            {
+                for (int j = 0; j < a.size(); j++)
+                {
+                    if (s[i] == a[j])
+                        cout << a[j - 1];
+                }
+            }
         }
-        ans = (ans  * (n-1)) % MOD; // multiplying with (n-1)!
-        cout << ans << endl;
+        cout << endl;
     }
     return 0;
 }

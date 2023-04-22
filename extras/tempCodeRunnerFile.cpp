@@ -1,37 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
-{
-
-    long long int n, c1, c2, mc, h1, h2, sum = 0;
-
-    scanf("%lld %lld %lld", &n, &c1, &c2);
-    getchar(); 
-    mc = min(c1, c2);
-
-    char s[3];
-
-    for (int i = 0; i < n; i++)
+{string a = "`1234567890-=QWERTYUIOP[]\\ASDFGHJKL;'ZXCVBNM,./"; 
+            // "`1234567890-=QWERTYUIOP[]\\ASDFGHJKL;'ZXCVBNM,./";
+    string s; 
+    getline(cin,s); 
+  
+    for (int  i = 0; i < s.size(); i++)
     {
-        scanf("%c%c%c", &s[0], &s[1], &s[2]);
-        getchar(); 
-        if (s[0] != s[1] && s[1] != s[2] && s[0] != s[2])
-        {
-            sum+= (mc * 3);
-        }
-        else
-        {
-            if (2 * c2 <= 3 * c1)
+        if(s[i]==' ') cout << " "; 
+        else{
+            for (int j = 0; j < a.size(); j++)
             {
-                sum +=  2*c2;
+                if(s[i] == a[j]) cout << a[j-1] ; 
             }
-            else if (c1+c2 >= 3 * c1)
-            {
-                sum += 3*c1;
-            }
-            else
-                sum += c1+c2;
+            
         }
     }
-    printf("%lld\n", sum);
+    cout << endl; 
+    return 0;
 }
