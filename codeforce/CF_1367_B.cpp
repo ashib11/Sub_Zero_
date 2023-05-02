@@ -6,7 +6,7 @@ int main()
     cin >> test_case;
     int n;
     int arr[1000];
-    while(test_case)
+    while(test_case--)
     {
         cin >> n;
         for (int j = 0; j < n; j++)
@@ -33,6 +33,6 @@ int main()
         else
             cout << even << endl;
     }
-
+ 
     return 0;
 }

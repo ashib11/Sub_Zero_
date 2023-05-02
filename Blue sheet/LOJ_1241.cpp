@@ -16,24 +16,29 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+const int N = 105;
+int n, a[N];
+
 int main()
 {
     fastIO();
-    int t;
-    cin >> t;
-    vector<int> v;
-    for (int i = 0; i < t; ++i)
+    int T;
+    cin >> T;
+    for (int t = 1; t <= T; t++)
     {
-        int x;
-        cin >> x;
-        v.push_back(x);
-    }
-    int sum = 0;
-    sort(v.begin(), v.end());
-    for (int i = 0; i < t-1; ++i){
-        sum += (v[i] / 2)+1;
-        // cout << sum << endl; 
+        cin >> n;
+        for (int i = 1; i <= n; i++)
+            cin >> a[i];
+        int ans = 0, cur = 2;
+        for (int i = 1; i <= n; i++)
+        {
+            if (a[i] > cur)
+            {
+                ans += (a[i] - cur + 4) / 5;
+                cur = a[i];
+            }
         }
-    cout << sum << endl;
+        cout << "Case " << t << ": " << ans << endl; 
+    }
     return 0;
 }
