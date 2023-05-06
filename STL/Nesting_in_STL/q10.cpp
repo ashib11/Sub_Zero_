@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include<fstream> 
 using namespace std;
 #define ll long long
 #define pi acos(-1.0)
@@ -10,8 +11,6 @@ using namespace std;
 #define no cout << "NO\n"
 #define endl "\n"
 #define getln(s) geline(cin, s)
-#define F(i, a, b) for (int i = a; i < b; i++)
-#define B(i, b, a) for (int i = b; i >= a; i--)
 #define point(x, d) fixed << setprecision(d) << x
 void fastIO()
 {
@@ -20,11 +19,24 @@ void fastIO()
 }
 int main()
 {
+    
+
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    map<int, set<string>> m;
+    int n;
+    cin >> n;
+    int marks;
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> marks;
+        cout << marks;
+        // string name;
+        // cin >> name >> marks;
+        // m[marks].insert(name);
     }
+  
+        
     return 0;
 }

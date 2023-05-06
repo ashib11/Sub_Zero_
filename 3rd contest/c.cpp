@@ -21,10 +21,23 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &x : v)
+    {
+        cin >> x;
     }
+    unordered_map<int, int> freq;
+    for (auto x : v)
+    {
+        freq[x]++;
+    }
+    ll sum = 0;
+    for (auto it : freq)
+    {
+        sum += static_cast<long long>(it.second) * (n - it.second);
+    }
+    cout << sum / 2 << endl;
     return 0;
 }

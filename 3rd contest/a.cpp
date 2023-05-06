@@ -21,10 +21,18 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int n;
+    cin >> n; 
+    vector <int> v; 
+    while(n--){
+        int x; 
+        cin >> x; 
+        v.push_back(x); 
     }
+    sort(v.begin(),v.end()); 
+    for(auto it : v){
+        cout << it <<" "; 
+    }
+    cout << endl; 
     return 0;
 }

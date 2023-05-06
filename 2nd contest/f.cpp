@@ -10,21 +10,22 @@ using namespace std;
 #define no cout << "NO\n"
 #define endl "\n"
 #define getln(s) geline(cin, s)
-#define F(i, a, b) for (int i = a; i < b; i++)
-#define B(i, b, a) for (int i = b; i >= a; i--)
 #define point(x, d) fixed << setprecision(d) << x
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+int fun(int n) {
+    if(n==1) return 0; 
+    if(n==2) return 1; 
+    return fun(n-1) + fun(n-2); 
+}
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
-    }
+    int n;
+    cin >> n; 
+    cout << fun(n) << endl; 
     return 0;
 }

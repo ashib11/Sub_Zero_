@@ -21,10 +21,26 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int d;
+    cin >> d;
+    deque<string> dq;
+    while (d--)
+    {
+        int x;
+        cin >> x;
+        if (x == 1)
+        {
+            string a;
+            cin >> a;
+            dq.push_front(a);
+        }
+        else
+        {
+            cout << dq.back() << endl;
+            string a = dq.back();
+            dq.pop_back();
+            dq.push_front(a);
+        }
     }
     return 0;
 }

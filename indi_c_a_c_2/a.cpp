@@ -21,10 +21,28 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int tc;
+    cin >> tc;
+    cin.ignore(); 
+    while (tc--)
+    {
+        string s;
+        getline(cin, s);
+        int a = 1, sum = 0;
+        s[0] == 'O' ? sum = 1 : sum = 0;
+        for (int i = 1; i < s.size(); ++i)
+        {
+            if (s[i] == 'O')
+            {
+                if (s[i] == s[i - 1])
+                {
+                    a++;
+                }
+                sum += a;
+            }
+            else a = 1;
+        }
+        cout << sum << endl; 
     }
     return 0;
 }

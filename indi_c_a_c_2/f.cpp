@@ -21,10 +21,13 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
+    int t; 
     cin >> t; 
-    F(i,0,t){
-        
+    while(t--) {
+        int a, b; 
+        cin >> a >> b; 
+        if(a==b) cout << "YES" << endl; 
+        else cout << "NO" << endl; 
     }
     return 0;
 }

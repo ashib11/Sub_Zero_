@@ -20,11 +20,29 @@ void fastIO()
 }
 int main()
 {
-    fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
     }
+    for (int i = 0; i < n; i++)
+    {
+        if (i == 0)
+        {
+            while (arr[i]--)
+            {
+                cout << "RLP";
+            }
+            continue;
+        }
+        cout << "R";
+        while (arr[i]--)
+        {
+            cout << "LRP";
+        }
+    }
+    cout << endl;
     return 0;
 }

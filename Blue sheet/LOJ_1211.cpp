@@ -20,11 +20,21 @@ void fastIO()
 }
 int main()
 {
+vector<int> x,y; 
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int tc;
+    cin >> tc; 
+    for(int i =1 ; i<=tc; ++i){
+            int n;
+            cin >> n; 
+            F(j,0,n){
+                    F(k,0,3){
+                        int a,b;
+                        cin >> a >> b;
+                        x.push_back(a); 
+                        y.push_back(b); 
+                    }
+            }
     }
     return 0;
 }

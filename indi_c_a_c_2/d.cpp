@@ -21,10 +21,19 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        int ns, hp;
+        cin >> ns >> hp;
+        int n, sum = 0;
+        for (int i = 0; i < ns; ++i)
+        {
+            cin >> n;
+            sum += n;
+        }
+        cout << min(sum, hp) << endl;
     }
     return 0;
 }

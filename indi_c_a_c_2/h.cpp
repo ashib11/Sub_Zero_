@@ -21,10 +21,23 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int count = 0;
+    string a;
+    cin >> a;
+    int arr[26] = {0};
+    for (int i = 0; i < a.size(); ++i)
+    {
+        arr[a[i] - 'a'] = 1;
     }
+    for (int i = 0; i < 26; ++i)
+    {
+        count += arr[i];
+    }
+    if (count % 2 != 0)
+    {
+        cout << "IGNORE HIM!\n";
+    }
+    else
+        cout << "CHAT WITH HER!\n";
     return 0;
 }

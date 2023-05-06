@@ -10,8 +10,6 @@ using namespace std;
 #define no cout << "NO\n"
 #define endl "\n"
 #define getln(s) geline(cin, s)
-#define F(i, a, b) for (int i = a; i < b; i++)
-#define B(i, b, a) for (int i = b; i >= a; i--)
 #define point(x, d) fixed << setprecision(d) << x
 void fastIO()
 {
@@ -21,10 +19,27 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int s;
+    cin >> s;
+    vector<int> v;
+    int dif = 100000;
+    int total = 0;
+    while (s--)
+    {
+        int x;
+        cin >> x;
+        v.push_back(x);
+        total += x;
     }
+    int new_sum=0; 
+    sort(v.begin(), v.end());
+    for(int i = v.size()-1 ; i>=0 ; --i) {
+        if(new_sum< total) {
+            total-=v[i]; 
+            new_sum += v[i]; 
+        }
+    }
+    dif = abs(total - new_sum); 
+    cout << dif << endl;
     return 0;
 }

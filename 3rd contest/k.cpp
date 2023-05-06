@@ -21,10 +21,20 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    unordered_map<ll, ll> u_m;
+    ll n;
+    vector<ll> v;
+    while (cin >> n)
+    {
+        // if (n == 0)
+        //     break;
+        u_m[n]++;
+        if (u_m[n] == 1)
+            v.push_back(n);
+    }
+    for (auto it : v)
+    {
+        cout << it << " " << u_m[it] << endl;
     }
     return 0;
 }

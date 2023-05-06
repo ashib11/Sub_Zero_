@@ -21,10 +21,26 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    string a;
+    cin >> a;
+    int s = 0, c = 0;
+    for (int i = 0; i < a.size(); ++i)
+    {
+        if (a[i] >= 'a' && a[i] <= 'z')
+            s++;
+        else
+            c++;
+    }
+    if (c > s)
+    {
+        std::transform(a.begin(), a.end(), a.begin(), ::toupper);
+        cout << a << endl;
+    }
+    else
+    {
+
+        std::transform(a.begin(), a.end(), a.begin(), ::tolower);
+        cout << a << endl;
     }
     return 0;
 }

@@ -21,10 +21,28 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int d;
+    cin >> d;
+    for (int i = 1; i <= d; ++i)
+    {
+        ll n, s;
+        ll sum = INT_MIN;
+        cin >> n >> s;
+        while (n--)
+        {
+            ll f, t;
+            cin >> f >> t;
+            if (t <= s)
+            {
+                sum = max(f, sum);
+            }
+            else
+            {
+                ll y = f - t + s;
+                sum = max(sum, y);
+            }
+        }
+        cout << "Case #" << i << ": " << sum << endl;
     }
     return 0;
 }

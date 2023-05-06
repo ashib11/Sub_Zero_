@@ -21,10 +21,30 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        int n, m;
+        cin >> n >> m;
+        int arr[n], brr[m];
+        for (int i = 0; i < n; ++i)
+        {
+            cin >> arr[i];
+        }
+        for (int i = 0; i < m; ++i)
+            cin >> brr[i];
+        for (int i = 0; i < m; ++i)
+        {
+            sort(arr, arr + n);
+            arr[0] = brr[i];
+        }
+        ll sum = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            sum += arr[i];
+        }
+        cout << sum << endl;
     }
     return 0;
 }

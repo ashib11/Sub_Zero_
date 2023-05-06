@@ -21,10 +21,23 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int n;
+    cin >> n;
+    map<vector<int>, string> u_m;
+    for (int i = 0; i < n; ++i)
+    {
+        int x, y;
+        string a;
+        cin >> x >> y >> a;
+        u_m[{x, y}] = a;
+    }
+    int q;
+    cin >> q;
+    for (int i = 0; i < q; ++i)
+    {
+        int x, y;
+        cin >> x >> y;
+        cout << u_m[{x, y}] << endl;
     }
     return 0;
 }

@@ -21,10 +21,27 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int n, m;
+    cin >> n >> m;
+    unordered_map<string, int> u_m;
+    for (int i = 0; i < n; ++i)
+    {
+        string str;
+        int val;
+        cin >> str >> val;
+        u_m[str] = val;
+    }
+    for (int i = 0; i < m; ++i)
+    {
+        int ans = 0;
+        string a;
+        while (cin >> a)
+        {
+            if (a == ".")
+                break;
+            ans += u_m[a];
+        }
+        cout << ans << endl;
     }
     return 0;
 }

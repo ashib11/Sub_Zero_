@@ -21,10 +21,26 @@ void fastIO()
 int main()
 {
     fastIO();
-    int t;
-    cin >> t; 
-    F(i,0,t){
-        
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        int s;
+        cin >> s;
+        int odd = 0, even = 0;
+        while (s--)
+        {
+            int x;
+            cin >> x;
+            if (x % 2 != 0)
+                odd++;
+            else
+                even++;
+        }
+        if (!odd)
+            cout << "-1" << endl;
+        else
+            cout << even << endl;
     }
     return 0;
 }
