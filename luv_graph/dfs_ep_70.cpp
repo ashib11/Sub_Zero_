@@ -34,6 +34,7 @@ void dfs(int vertex)
      * exiting the vertex
      **/
 }
+
 int main()
 {
     fastIO();
@@ -51,8 +52,8 @@ int main()
     {
         if (vis[i] == true)
             continue;
-        dfs(i);
         cnt++;
+        dfs(i);
     }
     cout << cnt << endl;
     return 0;

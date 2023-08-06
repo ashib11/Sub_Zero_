@@ -1,0 +1,1 @@
+{"name":"Local: b","url":"/home/itachi/Sub_Zero_/b.cpp","tests":[{"id":1690652028963,"input":"3\n4\n4 2 6 9\n5\n2 2 2 2 2\n3\n6 7 11","output":"36\n2\n462"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/itachi/Sub_Zero_/b.cpp","group":"local","local":true}
