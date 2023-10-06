@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define pi acos(-1.0)
+#define ull unsigned long long
+#define endl "\n"
+#define all(v) v.begin(), v.end()
+void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+void solve()
+{
+    int a, b;
+    cin >> a >> b;
+    int ans = (a - 1) + (b - 1);
+    if (ans == 0)
+        cout << 1 << endl;
+    else
+        cout << ans << endl;
+}
+int main()
+{
+    fastIO();
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        solve();
+    }
+    return 0;
+}

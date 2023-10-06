@@ -1,103 +1,49 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <queue>
+#include <map>
+
 using namespace std;
-#define ll long long
-#define pi acos(-1.0)
-#define ull unsigned long long
-#define endl "\n"
 
-void fastIO()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-}
+int main() {
+    int n;
+    cin >> n;
 
-int main()
-{
-    fastIO();
-    string a = "Alice";
-    string b = "Bob";
-    string c = "Cindy";
+    queue<char> bookStack;
+    map<char, int> bookIndex;
 
-    string str;
-    cin >> str;
-
-    if (str.size() > 5)
-    {
-        cout << "SOMETHING'S WRONG" << endl;
-        return 0;
+    // Initialize the book stack and book index.
+    for (char c = 'A'; c < 'A' + n; c++) {
+        bookStack.push(c);
+        bookIndex[c] = c - 'A';
     }
 
-    bool alice = true;
-    bool bob = true;
-    bool cindy = true;
+    int q;
+    cin >> q;
 
-    if (str.size() == 3)
-    {
-        alice = false;
-        cindy = false;
-        for (int i = 0; i < str.size(); i++)
-        {
-            if (str[i] == '.')
-                continue;
-            if (str[i] != b[i])
-            {
-                bob = false;
-                break;
-            }
-        }
-    }
-    else if (str.size() == 5)
-    {
-        bob = false;
-        for (int i = 0; i < str.size(); i++)
-        {
-            if (str[i] == '.')
-                continue;
-            if (str[i] != a[i])
-            {
-                alice = false;
-                break;
-            }
+    int totalOperations = 0;
+    for (int i = 0; i < q; i++) {
+        char query;
+        cin >> query;
+
+        int operations = bookIndex[query] - bookIndex[bookStack.front()];
+
+        // Move books from the front of the stack to the back until the queried book is at the front.
+        while (bookStack.front() != query) {
+            char frontBook = bookStack.front();
+            bookStack.pop();
+            bookStack.push(frontBook);
         }
 
-        for (int i = 0; i < str.size(); i++)
-        {
-            if (str[i] == '.')
-                continue;
-            if (str[i] != c[i])
-            {
-                cindy = false;
-                break;
-            }
+        totalOperations += operations;
+
+        // Print the number of operations and the current stack.
+        cout << totalOperations << endl;
+        while (!bookStack.empty()) {
+            cout << bookStack.front() << " ";
+            bookStack.pop();
         }
-    }
-    else
-    {
-        cout << "SOMETHING'S WRONG" << endl;
-        return 0;
+        cout << endl;
     }
 
-    int x = alice + bob + cindy;
-
-    if (x > 1)
-    {
-        cout << "CAN'T TELL" << endl;
-    }
-    else if (x == 1)
-    {
-
-        if (alice)
-        {
-            cout << "Alice" << endl;
-        }
-        else if (bob)
-            cout << "Bob" << endl;
-        else if (cindy)
-            cout << "Cindy" << endl;
-    }
-    else
-    {
-        cout << "SOMETHING'S WRONG" << endl;
-    }
     return 0;
 }

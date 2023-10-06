@@ -1,0 +1,1 @@
+{"name":"Local: check","url":"/home/ashibur/Sub_Zero_/check.cpp","tests":[{"id":1692243496097,"input":"1\nhello world \nhow the tf","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashibur/Sub_Zero_/check.cpp","group":"local","local":true}

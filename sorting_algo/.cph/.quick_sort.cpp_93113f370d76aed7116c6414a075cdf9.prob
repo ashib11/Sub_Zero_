@@ -1,0 +1,1 @@
+{"name":"Local: quick_sort","url":"/home/ashibur/Sub_Zero_/sorting_algo/quick_sort.cpp","tests":[{"id":1692256046611,"input":"5\n9\n1\n0\n5\n4\n3\n1\n2\n3\n0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashibur/Sub_Zero_/sorting_algo/quick_sort.cpp","group":"local","local":true}
