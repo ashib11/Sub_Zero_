@@ -31,10 +31,12 @@ void solve()
     }
     sort(all(x));
     sort(all(y));
-    if(n%2==0){
-        cout << x[(n-1)/2] << " " << y[(n-1)/2] << endl; 
+    if (n % 2 == 0)
+    {
+        cout << x[(n - 1) / 2] << " " << y[(n - 1) / 2] << endl;
     }
-    else cout << x[n/2] << " " << y[n/2] << endl; 
+    else
+        cout << x[n / 2] << " " << y[n / 2] << endl;
 }
 int main()
 {

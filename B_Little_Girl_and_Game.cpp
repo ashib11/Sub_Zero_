@@ -18,23 +18,34 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// find_by_key();
+// value_by_key();
 void solve()
 {
-    int arr[26] = {0};
     string a;
     cin >> a;
-    for (int i = 0; i < a.size(); ++i)
-    {
-        arr[a[i] - 'a']++;
-    }
+    int arr[26] = {0};
+    for (auto it : a)
+        arr[it - 'a']++;
+    int n_odd = 0;
     for (int i = 0; i < 26; ++i)
-        cout << arr[i] << endl;
+    {
+        if (arr[i] % 2)
+            n_odd++;
+    }
+    if (n_odd % 2 == 0 && (n_odd!=0))
+        cout << "Second" << endl;
+    else
+    {
+        cout << "First" << endl;
+    }
 }
 int main()
 {
     fastIO();
-    int tc=1;
+    int tc;
     // cin >> tc;
+    tc = 1; 
     while (tc--)
     {
         solve();

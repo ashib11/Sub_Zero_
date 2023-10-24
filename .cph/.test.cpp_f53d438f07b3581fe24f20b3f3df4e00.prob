@@ -1,1 +1,1 @@
-{"name":"Local: test","url":"/home/ashibur/Sub_Zero_/test.cpp","tests":[{"id":1693935200355,"input":"6\nA B C D E F\n3\nD\nF\nB","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashibur/Sub_Zero_/test.cpp","group":"local","local":true}
+{"name":"Local: test","url":"/home/ashibur/Sub_Zero_/test.cpp","tests":[{"id":1696858202523,"input":"4\na b c d \n2\nb a","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashibur/Sub_Zero_/test.cpp","group":"local","local":true}

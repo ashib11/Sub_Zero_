@@ -26,7 +26,7 @@ void solve()
     if (m == "09")
     {
         string x = a.substr(8, 2);
-        if (x <= "17")
+        if (x <= "16")
         {
             cout << "GOOD" << endl;
             return;

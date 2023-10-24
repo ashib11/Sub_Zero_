@@ -14,12 +14,14 @@ template <typename T>
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
                          tree_order_statistics_node_update>;
 
-void fastIO() {
+void fastIO()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
 
-void solve() {
+void solve()
+{
     int n, k;
     cin >> n >> k;
 
@@ -27,35 +29,45 @@ void solve() {
     cin >> s;
 
     vector<int> l(k), r(k);
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
         cin >> l[i];
     }
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
         cin >> r[i];
     }
 
     int q;
     cin >> q;
 
-    while (q--) {
+    while (q--)
+    {
         int x;
         cin >> x;
-        
+
         int left = 0, right = k - 1;
         int i = -1;
-        while (left <= right) {
+        while (left <= right)
+        {
             int mid = left + (right - left) / 2;
-            if (l[mid] <= x && x <= r[mid]) {
+            if (l[mid] <= x && x <= r[mid])
+            {
                 i = mid;
                 break;
-            } else if (x < l[mid]) {
+            }
+            else if (x < l[mid])
+            {
                 right = mid - 1;
-            } else {
+            }
+            else
+            {
                 left = mid + 1;
             }
         }
 
-        if (i != -1) {
+        if (i != -1)
+        {
             int a = min(x, r[i] + l[i] - x);
             int b = max(x, r[i] + l[i] - x);
             reverse(s.begin() + a - 1, s.begin() + b);
@@ -65,11 +77,13 @@ void solve() {
     cout << s << endl;
 }
 
-int main() {
+int main()
+{
     fastIO();
     int tc;
     cin >> tc;
-    while (tc--) {
+    while (tc--)
+    {
         solve();
     }
     return 0;

@@ -19,30 +19,44 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-//find_by_key(); 
-//value_by_key(); 
+// find_by_key();
+// value_by_key();
 void solve()
 {
-     int n, s;
-    cin>>n>>s;
-    if(n==1 && s==0)cout<<"0 0\n";
-    else if(s==0 || s>n*9)cout<<"-1 -1\n";
-    else {
-        int m=n, k=s;
-        deque<int>v;
-        while(m--){
-            if(s<=9 && m==0)v.pf(s);
-            else if(s==1){v.pf(0);continue;}
-            else if(s>9)v.pf(9),s-=9;
-            else v.pf(s-1),s=1;
+    int n, s;
+    cin >> n >> s;
+    if (n == 1 && s == 0)
+        cout << "0 0\n";
+    else if (s == 0 || s > n * 9)
+        cout << "-1 -1\n";
+    else
+    {
+        int m = n, k = s;
+        deque<int> v;
+        while (m--)
+        {
+            if (s <= 9 && m == 0)
+                v.pf(s);
+            else if (s == 1)
+            {
+                v.pf(0);
+                continue;
+            }
+            else if (s > 9)
+                v.pf(9), s -= 9;
+            else
+                v.pf(s - 1), s = 1;
         }
-        for(int i:v)cout<<i;
-        cout<<" ";
-        while(n--){
-            if(k>=9)cout<<9,k-=9;
-            else cout<<k,k-=k;
+        for (int i : v)
+            cout << i;
+        cout << " ";
+        while (n--)
+        {
+            if (k >= 9)
+                cout << 9, k -= 9;
+            else
+                cout << k, k -= k;
         }
- 
     }
 }
 int main()

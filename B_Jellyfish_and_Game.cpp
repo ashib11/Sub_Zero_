@@ -41,9 +41,9 @@ void solve()
     if (k % 2 == 0)
     {
         ans -= max(b[m - 1], a[n - 1]);
-        ans += min(b[0],a[0]); 
+        ans += min(b[0], a[0]);
     }
-   
+
     cout << ans << endl;
 }
 int main()

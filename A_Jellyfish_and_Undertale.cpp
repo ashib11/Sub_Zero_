@@ -26,23 +26,12 @@ void solve()
     for (auto &i : v)
         cin >> i;
     sort(all(v));
-    ll t_time = b ;
-    ll ans = 0;
+    ll t_time = b;
     for (int i = 0; i < n; ++i)
     {
-        if (t_time + v[i] > a)
-        {
-            ans += t_time;
-            t_time = min(a-1,v[i]);
-        }
-        else
-        {
-            t_time += v[i];
-           
-        }
+        t_time += min( v[i], a-1) ;
     }
-    ans += t_time;
-    cout << ans-1 << endl;
+    cout << t_time  << endl;
 }
 int main()
 {

@@ -33,7 +33,6 @@ void solve()
         even = true;
         ans.push_back(n - ((k - 1) * 2));
     }
-    // cout << n - ((k - 1) * 2) << endl;
     else
     {
         ans.clear();
