@@ -1,82 +1,80 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
+using namespace __gnu_pbds;
+template <typename T>
 #define ll long long
 #define pi acos(-1.0)
 #define ull unsigned long long
 #define endl "\n"
 #define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-const ll N = 2e5+10;
-ll a[N];
-ll cnt = 0;
-void merge(ll l, ll r, ll m)
+// find_by_order();
+// order_of_key();
+const int N = 1e6;
+ll arr[N];
+ll ans;
+void merge(ll l, ll m, ll r)
 {
-    ll l_sz = m - l + 1;
-    ll L[l_sz + 1];
-    ll r_sz = r - m; // r-(m+1)-1
-    ll R[r_sz + 1];
-    for (ll i = 0; i < l_sz; ++i)
+    ll sz_b = m - l + 1, sz_c = r - m;
+    ll b[sz_b], c[sz_c];
+    for (ll i = 0; i < sz_b; ++i)
+        b[i] = arr[l + i];
+    for (ll i = 0; i < sz_c; ++i)
+        c[i] = arr[m + 1 + i];
+    ll i = 0, j = 0, k = l;
+    while (i < sz_b && j < sz_c)
     {
-        L[i] = a[i + l];
-    }
-    for (ll i = 0; i < r_sz; ++i)
-    {
-        R[i] = a[i + m + 1];
-    }
-    L[l_sz] = R[r_sz] = INT_MAX;
-    ll l_i = 0;
-    ll r_i = 0;
-    for (ll i = l; i <= r; ++i)
-    {
-        if (L[l_i] <= R[r_i])
+        if (b[i] > c[j])
         {
-            a[i] = L[l_i];
-            ++l_i;
+            arr[k++] = c[j++];
+            ans += sz_b - i;
         }
         else
-        {
-            cnt++;
-            a[i] = R[r_i];
-            ++r_i;
-            
-        }
+            arr[k++] = b[i++];
     }
+    while (i < sz_b)
+        arr[k++] = b[i++];
+    while (j < sz_c)
+        arr[k++] = c[j++];
 }
-void mergeSort(ll l, ll r)
+void mergesort(ll l, ll r)
 {
-    if (l == r)
-        return;
-    ll mid = (l + r) / 2;
-    mergeSort(l, mid);
-    mergeSort(mid + 1, r);
-    merge(l, r, mid);
+    if (r > l)
+    {
+        ll m = (l + r) / 2;
+        mergesort(l, m);
+        mergesort(m + 1, r);
+        merge(l, m, r);
+    }
 }
 
-void solve()
-{
-    ll n;
-    cin >> n;
-    vector<ll> v(n);
-    for (ll i = 0; i < n; ++i)
-    {
-        cin >> v[i];
-    }
-    cnt = 0;
-    mergeSort(0, n - 1);
-    cout << cnt << endl;
-}
 int main()
 {
     fastIO();
-    ll tc;
+    int tc;
     cin >> tc;
     while (tc--)
     {
-        solve();
+        int n;
+        cin >> n;
+        ans = 0;
+        memset(arr, 0, sizeof(arr));
+        for (int i = 0; i < n; ++i)
+        {
+            cin >> arr[i];
+        }
+        mergesort(0, n - 1);
+        cout << ans << endl;
     }
     return 0;
 }

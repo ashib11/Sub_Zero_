@@ -21,17 +21,17 @@ void fastIO()
 // find_by_order();
 // order_of_key();
 const int N = 1e5;
-int arr[N];
-int ans;
-void merge(int l, int m, int r)
+ll arr[N];
+ll ans;
+void merge(ll l, ll m, ll r)
 {
-    int sz_b = m - l + 1, sz_c = r - m;
-    int b[sz_b], c[sz_c];
-    for (int i = 0; i < sz_b; ++i)
+    ll sz_b = m - l + 1, sz_c = r - m;
+    ll b[sz_b], c[sz_c];
+    for (ll i = 0; i < sz_b; ++i)
         b[i] = arr[l + i];
-    for (int i = 0; i < sz_c; ++i)
+    for (ll i = 0; i < sz_c; ++i)
         c[i] = arr[m + 1 + i];
-    int i = 0, j = 0, k = l;
+    ll i = 0, j = 0, k = l;
     while (i < sz_b && j < sz_c)
     {
         if (b[i] > c[j])
@@ -51,7 +51,7 @@ void mergesort(ll l, ll r)
 {
     if (r > l)
     {
-        int m = (l + r) / 2;
+        ll m = (l + r) / 2;
         mergesort(l, m);
         mergesort(m + 1, r);
         merge(l, m, r);
@@ -71,10 +71,7 @@ int main()
             cin >> arr[i];
         }
         mergesort(0, n - 1);
-        if (ans % 2)
-            cout << "Marcelo" << endl;
-        else
-            cout << "Carlos" << endl;
+        cout << ans << endl;
     }
     return 0;
 }
