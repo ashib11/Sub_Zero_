@@ -18,38 +18,39 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// find_by_order();
+// order_of_key();
 void solve()
 {
-    int n, x;
-    cin >> n >> x;
-    vector<int> v(n - 1);
+    int n;
+    cin >> n;
+    int grade;
+    cin >> grade;
+    int x = --n;
+    vector<int> v(x);
     for (auto &i : v)
         cin >> i;
-    sort(allr(v));
-    int ans = 0;
-
-    for (int i = 1; i <= n - 2; ++i)
+    sort(all(v));
+    int sum = 0;
+    for (int i = 0; i < x; ++i)
+        sum += v[i];
+    if (sum - v[0] < grade)
     {
-        // cout << "x" << endl;
-        ans += v[i];
-        // cout << v[i] << " ";
-        if (ans >= x)
-            break;
-    }
-    // cout << ans << endl;
-
-    if (ans > 100 || ans > v[n - 2] || ans < v[0])
         cout << -1 << endl;
-
-    else
-        cout << ans - x << endl;
+        return;
+    }
+    if (sum - v[x - 1] >= grade)
+    {
+        cout << 0 << endl;
+        return;
+    }
+    cout << grade - (sum - v[0] - v[x - 1]) << endl;
 }
 int main()
 {
     fastIO();
-    int tc;
+    int tc = 1;
     // cin >> tc;
-    tc = 1;
     while (tc--)
     {
         solve();

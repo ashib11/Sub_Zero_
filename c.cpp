@@ -18,8 +18,8 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-// find_by_key();
-// value_by_key();
+//order_of_key
+//value_of_key
 void solve()
 {
     int n;

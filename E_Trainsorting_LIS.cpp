@@ -20,52 +20,50 @@ void fastIO()
 }
 // find_by_order();
 // order_of_key();
-int dp[2030];
-int dp_lds[2030];
-int lis(int i, vector<int> &v)
+const int N = 1e5;
+vector<int> v(N);
+int lis[N], lds[N];
+int LIS(int indx)
 {
-
-    if (dp[i] != -1)
-        return dp[i];
-    dp[i] = 1;
-    for (int j = 0; j < i; ++j)
-    {
-        if (v[i] > v[j])
-        {
-            dp[i] = max(dp[i], lis(j, v) + 1);
-        }
-    }
-    return dp[i];
+    int &posh = lis[indx];
+    if (~posh)
+        return lis[indx];
+    posh = 1;
+    for (int i = 0; i < indx; ++i)
+        if (v[indx] > v[i])
+            posh = max(posh, LIS(i) + 1);
+    return posh;
 }
-int lds(int i, vector<int> &v)
+int LDS(int indx)
 {
-
-    if (dp_lds[i] != -1)
-        return dp_lds[i];
-    dp_lds[i] = 1;
-    for (int j = 0; j < i; ++j)
-    {
-        if (v[i] < v[j])
-        {
-            dp_lds[i] = max(dp_lds[i], lis(j, v) + 1);
-        }
-    }
-    return dp_lds[i];
+    int &posh = lds[indx];
+    if (~posh)
+        return lds[indx];
+    posh = 1;
+    for (int i = 0; i < indx; ++i)
+        if (v[indx] < v[i])
+            posh = max(posh, LDS(i) + 1);
+    return posh;
 }
 void solve()
 {
     int n;
     cin >> n;
-    memset(dp, -1, sizeof(dp));
-    vector<int> v(n);
+    memset(lis, -1, sizeof(lis));
+    memset(lds, -1, sizeof(lds));
+    v.resize(n);
     for (auto &i : v)
         cin >> i;
     int ans = 0;
     for (int i = 0; i < n; ++i)
     {
-        ans = max(ans, lds(i,v) + lis(i,v) - 1);
+        // cout << LIS(i) << " " << LDS(i) << endl;
+        int a = LIS(i);
+        int b = LDS(i);
+        ans = max(a + b + 1, ans);
     }
     cout << ans << endl;
+    v.clear();
 }
 int main()
 {

@@ -1,0 +1,1 @@
+{"name":"Local: min_no_coin","url":"/home/ashibur/Sub_Zero_/min_no_coin.cpp","tests":[{"id":1698902544022,"input":"11\n4\n1 5 6 9","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashibur/Sub_Zero_/min_no_coin.cpp","group":"local","local":true}

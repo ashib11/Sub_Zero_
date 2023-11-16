@@ -10,23 +10,30 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+const int m = 10;
+ll bxp(ll b, ll p)
+{
+    ll ans = 1;
+    while (p)
+    {
+        if (p % 2)
+         {
+            ans = (ans*b)%m;
+            --p;
+        }
+        else
+        {
+            b = (b*b)%m;
+            p /= 2;
+        }
+    }
+    return ans;
+}
 int main()
 {
     fastIO();
-    // for (int i = 1; i <= 8; ++i)
-    // {
-    //     cout << (ll)pow(1378ll, i) << endl;
-    // }
-    //4 2 6 8 4 2 6 8
-    int n;
+    ll n;
     cin >> n;
-    if (n % 4 == 1)
-        cout << 8 << endl;
-    else if (n % 4 == 2)
-        cout << 4 << endl;
-    else if (n % 4 == 3)
-        cout << 2 << endl;
-    else if (n % 4 == 0)
-        cout << 6 << endl;
+    cout << bxp(8, n) << endl;
     return 0;
 }

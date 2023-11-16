@@ -20,42 +20,38 @@ void fastIO()
 }
 // find_by_order();
 // order_of_key();
-const int N = 1005;
-int w[N], capacity[N];
-int func(int indx, int t_w)
+const int N = 1e3 + 10;
+int dp[1005][3010];
+int w[N], cap[N];
+int lis(int indx, int s)
 {
-    int ans = 1;
-    for (int i = 0; i < indx; ++i)
+    if (s >= 3001)
+        return 0;
+    if (!indx)
+        return 0;
+    int &posh = dp[indx][s];
+    if (~posh)
+        return posh;
+    if (s <= cap[indx])
     {
-        if (t_w + w[i] <= w[indx])
-        {
-            t_w += w[i];
-            ans = max(ans, func(i, t_w) + 1);
-        }
+        posh = max(posh, 1 + lis(indx - 1, s + w[indx]));
     }
-    return ans;
-}
-void solve()
-{
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
-        cin >> w[i] >> capacity[i];
-    int x = 0;
-    for (int i = 0; i < n; ++i)
-    {
-        x = max(x, func(i, 0));
-    }
-    cout << x << endl; 
+    return posh = max(posh, lis(indx - 1, s));
 }
 int main()
 {
     fastIO();
-    int tc = 1;
-    // cin >> tc;
-    while (tc--)
+    int n;
+    while (cin >> n && n)
     {
-        solve();
+        memset(dp, -1, sizeof(dp));
+        memset(w, 0, sizeof(w));
+        memset(cap, 0, sizeof(cap));
+        for (int i = 1; i <= n; ++i)
+        {
+            cin >> w[i] >> cap[i];
+        }
+        cout << lis(n, 0) << endl;
     }
     return 0;
 }

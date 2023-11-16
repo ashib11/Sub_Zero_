@@ -1,0 +1,1 @@
+{"name":"Local: matrix","url":"/home/ashibur/Sub_Zero_/number_theory/matrix.cpp","tests":[{"id":1699871918956,"input":"1\n2 3\n1 2 \n2 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashibur/Sub_Zero_/number_theory/matrix.cpp","group":"local","local":true}

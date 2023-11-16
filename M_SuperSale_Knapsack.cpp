@@ -20,7 +20,7 @@ void fastIO()
 }
 // find_by_order();
 // order_of_key();
-const int N = 1e5+10 ;
+const int N = 1e5 + 10;
 int weight[N];
 ll val[N];
 ll dp[N][35];
@@ -53,7 +53,7 @@ void solve()
         cin >> w;
         total += func(n_obj - 1, w);
     }
-    cout << total << endl; 
+    cout << total << endl;
 }
 int main()
 {

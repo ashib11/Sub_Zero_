@@ -23,7 +23,7 @@ void fastIO()
 void solve()
 {
     for(int i=0; i < 10; ++i){
-        cout << rand()%19 << endl; 
+        cout << rand()%19- << endl; 
     }
 }
 int main()

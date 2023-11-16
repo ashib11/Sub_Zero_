@@ -1,69 +1,60 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+/*
+Author: Abid Hasan
+Created:  13-November-2023  20:27:29
+*/
 
+#include <bits/stdc++.h>
 using namespace std;
-using namespace __gnu_pbds;
-template <typename T>
+#define ios_base          \
+    ::sync_with_stdio(0); \
+    cin.tie(0);           \
+    cout.tie(0);
 #define ll long long
-#define pi acos(-1.0)
-#define ull unsigned long long
+#define int ll
 #define endl "\n"
-#define all(v) v.begin(), v.end()
-#define allr(v) v.rbegin(), v.rend()
-using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
-                         tree_order_statistics_node_update>;
-void fastIO()
+#define w(x)  \
+    int x;    \
+    cin >> x; \
+    while (x--)
+#define f(i, x) for (int i = 0; i < x; i++)
+#define pb push_back
+#define pob pop_back
+#define mp make_pair
+#define deb(x) cout << #x << " = " << x << endl;
+#define all(x) x.begin(), x.end()
+#define sz(x) x.size()
+#define fi first
+#define se second
+
+// void IO(){
+//     #ifndef ONLINE_JUDGE
+//     freopen("input.txt","r",stdin);
+//     freopen("output.txt","w",stdout);
+//     #endif
+// }
+
+void lulu(int n)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    if (n == 0)
+    {
+        return;
+    }
+    lulu(n / 10);
+    cout << n % 10 << " ";
 }
-// find_by_order();
-// order_of_key();
-void print(stack<char> s)
+
+signed main()
 {
-    while (s.size())
+
+    // IO();
+    w(tc)
     {
-        cout << s.top() << " ";
-        s.pop();
+        int n;
+        cin >> n;
+        if (n == 0)
+            cout << 0 << endl;
+        else
+            lulu(n);
+        cout << endl;
     }
-    cout << endl;
-}
-void solve()
-{
-    int n;
-    cin >> n;
-    stack<char> st;
-    for (int i = 0; i < n; ++i)
-    {
-        char x;
-        cin >> x;
-        st.push(x);
-    }
-    int nq;
-    cin >> nq;
-    stack<char> ans;
-    for (int i = 0; i < nq; ++i)
-    {
-        stack<char> temp = st;
-        char y;
-        cin >> y;
-        while (temp.top() != y)
-        {
-            ans.push(temp.top());
-            temp.pop();
-        }
-        ans.push(temp.top()); 
-            print(ans);
-    }
-}
-int main()
-{
-    fastIO();
-    int tc = 1;
-    while (tc--)
-    {
-        solve();
-    }
-    return 0;
 }

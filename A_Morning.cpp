@@ -24,18 +24,24 @@ void solve()
 {
     string a;
     cin >> a;
-    int ans = a[0] - '0';
-    for (int i = 1; i < a.size(); ++i)
-    {
-
-        if (a[i] == a[i - 1])
-            ans++;
-        else if (a[i] == '0')
-            ans += abs(10 - (a[i - 1] - '0'));
-        else if (a[i - 1] == '0')
-            ans += abs(10 - (a[i] - '0'));
+    vector<int> v;
+    for (int i = 0; i < 4; ++i)
+        if (a[i] == '0')
+            v.push_back(10);
         else
-            ans += abs((a[i] - '0') - (a[i - 1] - '0'));
+            v.push_back(a[i] - '0');
+    int x = 1;
+    int ans = 0;
+    for (auto it : v)
+    {
+        if (x == it)
+            ans++;
+        else
+        {
+            ans += abs(x - it);
+            ans++;
+            x = it;
+        }
     }
     cout << ans << endl;
 }
