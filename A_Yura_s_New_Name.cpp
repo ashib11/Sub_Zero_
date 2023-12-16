@@ -23,32 +23,27 @@ void fastIO()
 
 void solve()
 {
-    map<int, vector<int>> mp;
-    int n, color;
-    cin >> n >> color;
-    for (int i = 1; i <= n; ++i)
+    string s;
+    cin >> s;
+    int n = s.size();
+    if (s == "^")
     {
-        int x;
-        cin >> x;
-        mp[x].push_back(i);
+        cout << 1 << endl;
+        return;
     }
-    int ans = n;
-    for (auto it : mp)
+    int ans = 0;
+    if (s.front() == '_')
+        ans++;
+    if (s.back() == '_')
+        ans++;
+    for (int i = 1; i < n ; ++i)
     {
-        int i = 0;
-        vector<int> tmp;
-        for (auto pos : it.second)
-        {
-            tmp.push_back(pos - i - 1);
-            cout << tmp.back() << endl;
-            i = pos;
-        }
-        tmp.push_back(n - i);
-        sort(all(tmp));
-        ans = min(max(tmp[tmp.size() - 1] / 2, tmp[tmp.size() - 2]), ans);
+        if (s[i] == '_' and s[i - 1] == '_')
+            ans++;
     }
-    cout << ans << endl;
+    cout << ans << endl; 
 }
+
 int main()
 {
     fastIO();

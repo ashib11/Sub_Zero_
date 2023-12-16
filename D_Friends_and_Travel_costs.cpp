@@ -20,40 +20,38 @@ void fastIO()
 }
 // find_by_order();
 // order_of_key();
-
+map<ll, ll> mp;
 void solve()
 {
-    map<int, vector<int>> mp;
-    int n, color;
-    cin >> n >> color;
-    for (int i = 1; i <= n; ++i)
+    int n;
+    cin >> n;
+    ll k;
+    cin >> k;
+    ll s = k;
+    set<ll> st;
+    for (int i = 0; i < n; ++i)
     {
-        int x;
-        cin >> x;
-        mp[x].push_back(i);
+        ll x, y;
+        cin >> x >> y;
+        mp[x] += y;
+        st.insert(x);
     }
-    int ans = n;
-    for (auto it : mp)
+ 
+    for (auto it : st)
     {
-        int i = 0;
-        vector<int> tmp;
-        for (auto pos : it.second)
+        if (s >= it)
         {
-            tmp.push_back(pos - i - 1);
-            cout << tmp.back() << endl;
-            i = pos;
+            s += mp[it];
         }
-        tmp.push_back(n - i);
-        sort(all(tmp));
-        ans = min(max(tmp[tmp.size() - 1] / 2, tmp[tmp.size() - 2]), ans);
     }
-    cout << ans << endl;
+    cout << s  << endl;
 }
+
 int main()
 {
     fastIO();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     while (tc--)
     {
         solve();

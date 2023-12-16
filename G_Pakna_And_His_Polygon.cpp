@@ -23,32 +23,12 @@ void fastIO()
 
 void solve()
 {
-    map<int, vector<int>> mp;
-    int n, color;
-    cin >> n >> color;
-    for (int i = 1; i <= n; ++i)
-    {
-        int x;
-        cin >> x;
-        mp[x].push_back(i);
-    }
-    int ans = n;
-    for (auto it : mp)
-    {
-        int i = 0;
-        vector<int> tmp;
-        for (auto pos : it.second)
-        {
-            tmp.push_back(pos - i - 1);
-            cout << tmp.back() << endl;
-            i = pos;
-        }
-        tmp.push_back(n - i);
-        sort(all(tmp));
-        ans = min(max(tmp[tmp.size() - 1] / 2, tmp[tmp.size() - 2]), ans);
-    }
-    cout << ans << endl;
+    int n;
+    cin >> n;
+    double ans = sqrt(3) * 1.5 * n*n*1.0; 
+    cout << fixed << setprecision(4) << ans  << endl; 
 }
+
 int main()
 {
     fastIO();
