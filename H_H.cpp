@@ -1,46 +1,61 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
+using namespace __gnu_pbds;
+template <typename T>
 #define ll long long
 #define pi acos(-1.0)
 #define ull unsigned long long
 #define endl "\n"
-
+#define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// find_by_order();
+// order_of_key();
 
-ll ans = 0;
-int dp[N]; 
-void rec(int arr[][100], int i, int j, int n, int m, ll sum)
+void solve()
 {
-    if (i >= n|| j >= m)
+    ll n, tk;
+    cin >> n >> tk;
+    vector<ll> v(n);
+    for (auto &i : v)
+        cin >> i;
+    ll l = 0, h = 1e11, ans = 0;
+    while (h >= l)
     {
-        ans = max(ans, sum);
-        return;
+        ll mid = (l + h) / 2;
+        ll ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (v[i] < mid)
+                ans += mid - v[i];
+        }
+        if (ans <= tk)
+        {
+            l = mid + 1;
+        }
+        else
+            h = mid - 1;
     }
-
-    sum += arr[i][j];
-    rec(arr, i + 1, j, n, m, sum); 
-    rec(arr, i, j + 1, n, m, sum); 
+    cout << h << endl;
 }
 
 int main()
 {
     fastIO();
-    int n, m;
-    cin >> n >> m;
-    int arr[100][100];
-    memset(dp,-1,sizeof(dp)); 
-    for (int i = 0; i < n; ++i)
+    int tc = 1;
+    // cin >> tc;
+    while (tc--)
     {
-        for (int j = 0; j < m; ++j)
-        {
-            cin >> arr[i][j];
-        }
+        solve();
     }
-    rec(arr, 0, 0, n, m, 0);
-    cout << ans << endl;
     return 0;
 }

@@ -31,12 +31,9 @@ void solve()
     {
         int x, y;
         cin >> x >> y;
-        // cout << arr[y] << endl;
         if (arr[y] > x)
-        {
             arr[y] = x;
-            // cout << arr[y] << endl;
-        }
+        
     }
     int ans = min(arr[1]+arr[10], arr[11]); 
     if(ans == N)

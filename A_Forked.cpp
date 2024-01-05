@@ -48,15 +48,7 @@ void solve()
     queenpos.insert({qx + b, qy - a});
     queenpos.insert({qx - b, qy - a});
 
-    // for (auto it : kingpos)
-    // {
-    //     cout << it.first << ' ' << it.second << endl;
-    // }
-    // cout << endl;
-    // for (auto it : queenpos)
-    // {
-    //     cout << it.first << " " << it.second << endl;
-    // }
+   
     ll cnt = 0;
     vector<ll> x, y;
     for (auto it : kingpos)

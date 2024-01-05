@@ -52,7 +52,6 @@ int main()
             int temp = 1e8;
             for (auto it : v[i])
             {
-                cout << it << endl;
                 int dif = abs(it - (++it));
                 temp = min(dif, temp);
             }

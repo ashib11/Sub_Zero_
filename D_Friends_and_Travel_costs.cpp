@@ -44,7 +44,7 @@ void solve()
             s += mp[it];
         }
     }
-    cout << s  << endl;
+    cout << s  << "\n";
 }
 
 int main()

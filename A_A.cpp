@@ -1,46 +1,46 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
-using namespace __gnu_pbds;
-template <typename T>
-#define ll long long
-#define pi acos(-1.0)
-#define ull unsigned long long
-#define endl "\n"
-#define all(v) v.begin(), v.end()
-#define allr(v) v.rbegin(), v.rend()
-using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
-                         tree_order_statistics_node_update>;
-void fastIO()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-}
-void solve()
-{
 
-    int n;
-    cin >> n;
-    vector<string> a(n);
-    for (int i = 0; i < n; ++i)
-        cin >> a[i];
-    ll cnt=0; 
-    for (int i = 1; i < n; ++i){
-        if(a[i]==a[i-1]) cnt++; 
+// Function to calculate the greatest common divisor (gcd)
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    cout << cnt << endl; 
+    return a;
 }
-int main()
-{
-    fastIO();
-    int tc;
-    // cin >> tc;
-    tc = 1; 
-    while (tc--)
-    {
-        solve();
+
+// Function to calculate the rank of a/b in the set of fractions
+int findRank(int n, int a, int b) {
+    int rank = 0;
+    for (int denominator = 1; denominator <= n; ++denominator) {
+        for (int numerator = 0; numerator <= denominator; ++numerator) {
+            if (gcd(numerator, denominator) == 1) {
+                rank++;
+                if (numerator == a && denominator == b) {
+                    return rank;
+                }
+            }
+        }
     }
+    return -1; // It should never reach here
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, a, b;
+        cin >> n >> a >> b;
+
+        int result = findRank(n, a, b);
+        cout << result << endl;
+    }
+
     return 0;
 }

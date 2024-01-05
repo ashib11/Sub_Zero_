@@ -20,11 +20,41 @@ void fastIO()
 }
 // find_by_order();
 // order_of_key();
+int sum(ll &n)
+{
+    string temp = to_string(n);
+    int sz = temp.size();
+    ll ck = 0;
+    for (auto it : temp)
+    {
+        ck += (it - '0');
+    }
+    return ck;
+}
 void solve()
 {
     ll x, k;
     cin >> x >> k;
+
+    if (sum(x) % k == 0)
+    {
+        cout << x << endl;
+        return;
+    }
+    while (1)
+    {
+        // cout << x << " " << sum(x) << endl;
+        if (sum(x) % k == 0)
+        {
+            // cout << sum(x) << endl;
+            cout << x << endl;
+            return;
+        }
+        else
+            x++;
+    }
 }
+
 int main()
 {
     fastIO();

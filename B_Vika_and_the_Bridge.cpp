@@ -40,7 +40,7 @@ void solve()
         for (auto pos : it.second)
         {
             tmp.push_back(pos - i - 1);
-            cout << tmp.back() << endl;
+            // cout << tmp.back() << endl;
             i = pos;
         }
         tmp.push_back(n - i);

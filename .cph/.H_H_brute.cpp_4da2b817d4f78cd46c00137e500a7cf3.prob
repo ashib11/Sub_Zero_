@@ -1,0 +1,1 @@
+{"name":"Local: H_H_brute","url":"/home/ashib/Sub_Zero_/H_H_brute.cpp","tests":[{"id":1704000567239,"input":"5 50\n1 2 3 25 50","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashib/Sub_Zero_/H_H_brute.cpp","group":"local","local":true}

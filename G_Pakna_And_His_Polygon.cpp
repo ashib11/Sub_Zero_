@@ -23,10 +23,7 @@ void fastIO()
 
 void solve()
 {
-    int n;
-    cin >> n;
-    double ans = sqrt(3) * 1.5 * n*n*1.0; 
-    cout << fixed << setprecision(4) << ans  << endl; 
+  
 }
 
 int main()

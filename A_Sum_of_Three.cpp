@@ -24,31 +24,14 @@ void solve()
 {
     int n;
     cin >> n;
-
-    int a, b, c;
-    a = n / 3;
-    b = n / 3;
-    c = n / 3 + n % 3;
-    if (a % 3 == 0 && b % 3 == 0 && c == 0 || (a <= 3 && b <= 3 && c <= 3))
-    {
-        cout << "NO" << endl;
-        return;
+    if( n < 7 or n == 9){
+        cout << "NO" << endl; 
+        return; 
     }
-    else
-    {
-        a = a-2; 
-        c = c+2; 
-        if(c%3==0){
-            c--; 
-            b++; 
-        }
-        if(b%3==0){
-            b--; 
-            a++; 
-        }
-        cout << "YES" << endl;
-        cout << a  << " " << b << " " << c << endl;
-    }
+    cout << "YES" << endl; 
+    if(n%3!=0)
+        cout << 1 <<  " " << 2 <<  " " << n-3 << endl; 
+    else cout << 1 << " " << 4 << " " << n-5 << endl; 
 }
 int main()
 {
