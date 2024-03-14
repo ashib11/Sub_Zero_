@@ -45,7 +45,6 @@ void solve()
     cin >> n;
     for (int i = 1; i <= n; ++i)
         cin >> v[i];
-    // sort(all(v));
     val = 0;
     cout << search(1, n ) << endl;
 }

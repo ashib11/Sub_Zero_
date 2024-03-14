@@ -18,44 +18,35 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
+// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
-    string str;
-    cin >> str;
-    stack<char> s;
-
-    for (auto it : str)
+    vector<int> v(3);
+    map<int, bool> mp;
+    for (auto &i : v)
     {
-        if (it == '(' || it == '[' || it == '{')
-            s.push(it);
-        else if (it == ')' || it == ']' || it == '}')
+        cin >> i;
+        mp[i] = true;
+    }
+    sort(all(v));
+    int dif1 = v[1] - v[0];
+    int dif2 = v[2] - v[1];
+    int mn = min(dif1, dif2);
+    for (int i = 0; i < 3; ++i)
+    {
+        int x = v[i] + mn;
+        if (mp[x] == false)
         {
-            if (s.empty())
-            {
-                cout << "No" << endl;
-                return;
-            }
-
-            char t = s.top();
-            s.pop();
-
-            if ((it == ')' && t != '(') ||
-                (it == ']' && t != '[') ||
-                (it == '}' && t != '{'))
-            {
-                cout << "No" << endl;
-                return;
-            }
+            cout << x << endl;
+            return;
         }
     }
-
-    if (s.empty())
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    cout << v[0] << endl;
 }
 
 int main()

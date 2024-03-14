@@ -16,7 +16,7 @@ using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(NULL); 
 }
 // find_by_order();
 // order_of_key();
@@ -32,14 +32,14 @@ void solve()
         cin >> x >> y;
         if (x > 0 and y > 0)
             r = 1, t = 1;
-        else if (x >0 and y < 0)
+        else if (x > 0 and y < 0)
             r = 1, d = 1;
         else if (x < 0 and y < 0)
             l = 1, d = 1;
         else if (x < 0 and y > 0)
             l = 1, t = 1;
     }
-    if (l+r+d+t == 4)
+    if (l + r + d + t == 4)
         cout << "NO" << endl;
     else
         cout << "YES" << endl;

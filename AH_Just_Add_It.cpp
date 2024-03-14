@@ -52,7 +52,7 @@ void solve()
         ans += bxp(n - 1, n);
         ans -= 2 * bxp(n - 2, k);
         ans -= 2 * bxp(n - 2, n);
-        cout << ans %mod<< endl;
+        cout << ans % mod << endl;
     }
 }
 

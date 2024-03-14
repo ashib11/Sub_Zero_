@@ -23,28 +23,10 @@ void fastIO()
 
 void solve()
 {
-    string a, b;
-    cin >> a >> b;
-    map<char, int> av, bv;
-    for (int i = 0; i < (int)a.size(); ++i)
-    {
-        av[a[i]]++;
-    }
-    for (int i = 0; i < (int)b.size(); ++i)
-    {
-        bv[b[i]]++;
-    }
-
-    int ans = 0;
-    for (auto it : av)
-    {
-        auto ch = it.first;
-        if (bv.find(ch) != bv.end())
-        {
-            ans += min(it.second, bv[ch]);
-        }
-    }
-    cout << ans << endl;
+    int n, m; cin >> n >> m; 
+    vector<int> v(n); 
+    for(auto &i : v) cin >> i; 
+    
 }
 
 int main()

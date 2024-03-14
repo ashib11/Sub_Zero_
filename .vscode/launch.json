@@ -2,6 +2,41 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "DIUEmployee",
+            "request": "launch",
+            "mainClass": "oop2.oop.fourth.DIUEmployee",
+            "projectName": "Sub_Zero__61ff1d37"
+        },
+        {
+            "type": "java",
+            "name": "Reactangle",
+            "request": "launch",
+            "mainClass": "oop2.oop.third.Reactangle",
+            "projectName": "Sub_Zero__61ff1d37"
+        },
+        {
+            "type": "java",
+            "name": "Library",
+            "request": "launch",
+            "mainClass": "oop2.oop.second.Library",
+            "projectName": "Sub_Zero__61ff1d37"
+        },
+        {
+            "type": "java",
+            "name": "Student",
+            "request": "launch",
+            "mainClass": "oop2.oop.first.Student",
+            "projectName": "Sub_Zero__61ff1d37"
+        },
+        {
+            "type": "java",
+            "name": "Student",
+            "request": "launch",
+            "mainClass": "oop2.Student",
+            "projectName": "Sub_Zero__61ff1d37"
+        },
+        {
             "name": "C/C++: g++ build and debug active file",
             "type": "cppdbg",
             "request": "launch",

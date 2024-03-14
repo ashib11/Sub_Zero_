@@ -27,7 +27,6 @@ void solve()
     for (int i = 1; i < 19; ++i)
     {
         v[i] = v[i - 1] * 10 + 1;
-        // cout << v[i] << " ";
     }
     set<ll> ans;
     for (int i = 1; i < 19; ++i)
@@ -37,7 +36,6 @@ void solve()
             for (int k = 1; k < 19; ++k)
             {
                 ans.insert(v[i] + v[j] + v[k]);
-                // cout << v[i] + v[j] + v[k] << " ";
             }
         }
     }

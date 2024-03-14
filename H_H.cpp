@@ -21,31 +21,25 @@ void fastIO()
 // find_by_order();
 // order_of_key();
 
+ll n, m;
+ll arr[12][12];
+ll func(int x, int y)
+{
+    if (x == 0 and y == 0)
+    {
+        return arr[x][y];
+    }
+    if (x < 0 || x >= n || y < 0 || y >= m)
+        return INT_MIN;
+    return (arr[x][y] + max(func(x - 1, y), func(x, y - 1)));
+}
 void solve()
 {
-    ll n, tk;
-    cin >> n >> tk;
-    vector<ll> v(n);
-    for (auto &i : v)
-        cin >> i;
-    ll l = 0, h = 1e11, ans = 0;
-    while (h >= l)
-    {
-        ll mid = (l + h) / 2;
-        ll ans = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (v[i] < mid)
-                ans += mid - v[i];
-        }
-        if (ans <= tk)
-        {
-            l = mid + 1;
-        }
-        else
-            h = mid - 1;
-    }
-    cout << h << endl;
+    cin >> n >> m;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            cin >> arr[i][j];
+    cout << func(n - 1, m - 1) << endl;
 }
 
 int main()

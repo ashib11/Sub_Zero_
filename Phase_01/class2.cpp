@@ -31,13 +31,13 @@ void solve()
     vector<int> v(n);
     for (auto &i : v)
         cin >> i;
-    // all possible subset
-    cout << (1 << 10) << endl;
+    // all possible subset O(n*2^n)  
+    
     for (int mask = 0; mask < (1 << n); ++mask)
     {
         for (int i = 0; i < n; ++i)
         {
-            if ((mask >> i) & 1)
+            if (mask & (1 << i))
             {
                 cout << v[i] << " ";
             }

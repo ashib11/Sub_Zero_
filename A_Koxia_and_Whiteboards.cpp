@@ -20,6 +20,8 @@ void fastIO()
 }
 // find_by_order();
 // order_of_key();
+// auto it = min_element(all(v));
+// int indx = distance(begin(v), it); -> to get the indx 
 
 void solve()
 {

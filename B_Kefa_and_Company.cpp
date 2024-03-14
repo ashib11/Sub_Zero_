@@ -30,23 +30,20 @@ bool cmp(pair<int, int> a, pair<int, int> b)
 }
 void solve()
 {
-    ll n, d;
     cin >> n >> d;
-    vector<ll> v(n);
-    for (auto &i : v)
-        cin >> i;
-    vector<pair<ll, ll>> vp;
-    for (ll i = 0; i < n; ++i)
+    for (long long i = 1; i <= n; i++)
+        cin >> a[i].m >> a[i].s;
+    sort(a + 1, a + n + 1, cmp);
+    long long l = 1, r = 1, sum = a[1].s, ans = 0;
+    while (r <= n && l <= n)
     {
-        ll x, y;
-        cin >> x >> y;
-        vp.push_back({x, y});
+        while (r + 1 <= n && a[r + 1].m - a[l].m < d)
+            r++, sum += a[r].s;
+        ans = max(ans, sum);
+        sum -= a[l].s;
+        l++;
     }
-    sort(all(vp), cmp);
-    for (auto it : vp)
-    {
-        cout << it.first << " " << it.second << endl;
-    }
+    cout << ans;
 }
 
 int main()

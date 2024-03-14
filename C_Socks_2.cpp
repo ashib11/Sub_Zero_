@@ -37,9 +37,10 @@ void solve()
         int x;
         cin >> x;
         mp[x-1].first--;
-        cout << mp[x-1].first << " " << mp[x-1].second << endl;
+        // cout << mp[x-1].first << " " << mp[x-1].second << endl;
     }
     sort(all(mp));
+    for(auto it : mp)
 }
 
 int main()

@@ -18,53 +18,41 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
+// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
-    int n, m;
-    cin >> n >> m;
-    map<int, int> hb, hg;
-    int nb;
-    cin >> nb;
-    for (int i = 0; i < nb; ++i)
+    int n;
+    cin >> n;
+    int mx = -1;
+    vector<int> v(n);
+    for (auto &i : v)
+        cin >> i;
+    if (is_sorted(all(v)))
     {
-        int x;
-        cin >> x;
-        hb[x] = 1;
-    }
-    int ng;
-    cin >> ng;
-    for (int i = 0; i < ng; ++i)
-    {
-        int x;
-        cin >> x;
-        hg[x] = 1;
-    }
-    for (int i = 1; i <= max(n, m) * 100; ++i)
-    {
-        int happi = i % n;
-        int happihappi = i % m;
-        if (hb[happi] || hg[happihappi])
-        {
-            // cout << i%n << " " <<
-            hb[happi] = 1;
-            hg[happihappi] = 1;
-        }
-    }
-    ll ans = 0;
-    for (auto it : hb)
-    {
-        ans += it.second;
-    }
-    for (auto it : hg)
-        ans += it.second;
-    // cout << ans << endl;
-    if (ans == (m + n))
         cout << "Yes" << endl;
+        return;
+    }
+
     else
-        cout << "No" << endl;
+    {
+        for (int i = 0; i < n ; ++i)
+        {
+            if (v[i] + 1 >= mx)
+            {
+                mx = max(mx, v[i]);
+            }
+            else {
+                cout << "No" << endl; 
+                return; 
+            }
+        }
+        cout << "Yes" << endl;
+    }
 }
 
 int main()

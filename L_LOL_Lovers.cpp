@@ -27,21 +27,7 @@ void solve()
     cin >> n;
     string str;
     cin >> str;
-    vector<int> v(n, 0);
-    v[0] = 1;
-    int k = 1;
-    for (int i = 1; i < n; ++i)
-    {
-        if (str[i] == str[i - 1])
-            v[i] = ++k;
-        else
-        {
-            k = 1;
-            v[i] = k;
-        }
-    }
-    for (int i = 0; i < n; ++i)
-        cout << v[i] << " ";
+    for(int i=0)
 }
 
 int main()

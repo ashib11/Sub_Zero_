@@ -43,10 +43,8 @@ void solve()
     }
     while (1)
     {
-        // cout << x << " " << sum(x) << endl;
         if (sum(x) % k == 0)
         {
-            // cout << sum(x) << endl;
             cout << x << endl;
             return;
         }

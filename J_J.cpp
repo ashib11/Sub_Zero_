@@ -21,75 +21,30 @@ void fastIO()
 // find_by_order();
 // order_of_key();
 
+void solve()
+{
+    vector<ull> v(3);
+    for (auto &i : v)
+        cin >> i;
+    int k;
+    cin >> k;
+    sort(allr(v));
+    for (int i = 0; i < k; ++i)
+    {
+        v[0] *= 2;
+    }
+    ull ans = accumulate(all(v), 0);
+    cout << ans << endl;
+}
+
 int main()
 {
     fastIO();
-    ll a, b;
-    ll sma = 0, smb = 0;
     int tc = 1;
-    while (cin >> a >> b and a and b)
+    // cin >> tc;
+    while (tc--)
     {
-        cout << tc << ". ";
-        map<ll, ll> pa, pb;
-        for (int i = 2; (i * i) <= a; ++i)
-        {
-            int cnt = 0;
-            if (a % i == 0)
-            {
-                sma += i;
-                while (a % i == 0)
-                {
-                    ++cnt;
-                    a /= i;
-                }
-                pa[i] = cnt;
-            }
-        }
-        if (a > 2)
-        {
-            sma += a;
-            pa[a] = 1;
-        }
-
-        for (int i = 2; (i * i) <= b; ++i)
-        {
-            int cnt = 0;
-            if (b % i == 0)
-            {
-                smb += i;
-                while (b % i == 0)
-                {
-                    ++cnt;
-                    b /= i;
-                }
-                pb[i] = cnt;
-            }
-        }
-        if (b > 2)
-        {
-            pb[b] = 1;
-            smb += b;
-        }
-        set<ll> all;
-        for (auto it : pa)
-        {
-            // cout << it.first << "p" << it.second << " ";
-            all.insert(it.first);
-        }
-        for (auto it : pb)
-        {
-            // cout << it.first << "p" << it.second << " ";
-            all.insert(it.first);
-        }
-        ll ans = 0;
-        for (auto it : all)
-        {
-            ans += abs(pa[it] - pb[it]);
-            sma += it;
-        }
-        ll n = all.size();
-        cout << n << ":" << ans << endl;
-        tc++;
+        solve();
     }
     return 0;
 }

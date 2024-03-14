@@ -31,12 +31,8 @@ void solve()
     {
         cin >> v[i];
         if (v[i] != v[0])
-        {
-            // cout << v[i] << " "; 
             cnt++;
-        }
     }
-    // cout << n << " "; 
     cout << n - cnt << endl;
 }
 

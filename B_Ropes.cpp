@@ -1,72 +1,67 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
-#define ll long long int
-#define sort(x) sort(x.begin(), x.end())
-#define forin(x, n)             \
-    for (int i = 0; i < n; i++) \
-        cin >> x[i];
+using namespace __gnu_pbds;
+template <typename T>
+#define ll long long
+#define pi acos(-1.0)
+#define ull unsigned long long
 #define endl "\n"
-#define fast                      \
-    ios_base::sync_with_stdio(0); \
-    cin.tie(0);                   \
-    cout.tie(0);
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
-
-bool pos(vector<int> &v, double mid, int k)
+#define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
+void fastIO()
 {
-    int c = 0;
-
-    for (int i = 0; i < v.size(); i++)
-    {
-        c += (v[i] / mid);
-    }
-
-    if (c >= k)
-        return true;
-    else
-        return false;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 }
-double BS(vector<int> &v, int k)
+// find_by_order();
+// order_of_key();
+int n, k;
+bool f(vector<ll> &v, double mid)
 {
-
-    double low = 0, high = 1e7;
-    // cout << log(1e7) << endl;
-    int x = 20;
-    while (x--)
+    ll cnt = 0;
+    for (int i = 0; i < v.size(); ++i)
     {
-        double mid = (low + high )/ 2;
-
-        if (pos(v, mid, k))
-            low = mid ;
+        cnt += v[i] / mid;
+    }
+    return cnt >= k;
+}
+void solve()
+{
+    cin >> n >> k;
+    vector<ll> v(n);
+    for (auto &i : v)
+        cin >> i;
+    double l = 0, r = 1e12;
+    double ans = -1;
+    while (r - l >= 1e-7)
+    {
+        double mid = (l + r) / 2;
+        if (f(v, mid))
+        {
+            ans = mid;
+            l = mid ;
+        }
         else
-            high = mid ;
+        {
+            r = mid ;
+        }
     }
-
-    return low;
+    cout << ans << endl;
 }
+
 int main()
 {
-    fast
-
-        int t = 1;
-    // cin>>t;
-
-    while (t--)
+    fastIO();
+    int tc = 1;
+    // cin >> tc;
+    while (tc--)
     {
-        int n, k;
-        cin >> n >> k;
-        vector<int> v(n);
-        forin(v, n);
-        sort(v);
-
-        // cout << BS(v,k) << endl;
-        printf("%.5lf\n", BS(v, k));
+        solve();
     }
-
     return 0;
 }

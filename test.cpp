@@ -23,20 +23,26 @@ void fastIO()
 
 void solve()
 {
+    map<int, int> mp;
     int cnt = 0;
-    int n = 100000;
-    for (int i = 0; i < n; i += 2)
+    int n = 1e5;
+    for (int i = 1; i < n; ++i)
     {
-        cnt++;
+        mp[i] = mp[i - 1] + 1;
     }
-    cout << cnt << endl;
+    int mx = -1;
+    for (auto it : mp)
+    {
+        mx = max(it.second, mx);
+    }
+    cout << mx << endl;
 }
 
 int main()
 {
     fastIO();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     while (tc--)
     {
         solve();

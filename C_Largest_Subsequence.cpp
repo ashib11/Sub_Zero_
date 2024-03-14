@@ -1,60 +1,51 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
 using namespace std;
+using namespace __gnu_pbds;
+template <typename T>
+#define ll long long
+#define pi acos(-1.0)
+#define ull unsigned long long
+#define endl "\n"
+#define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
+void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+// find_by_order();
+// order_of_key();
 
-int min_operations_to_sorted(string s) {
-    int n = s.length();
-    vector<int> last_occurrence(26, -1);
-
-    // Find the last occurrence of each character in the string
-    for (int i = 0; i < n; ++i) {
-        last_occurrence[s[i] - 'a'] = i;
-    }
-
-    int operations = 0, prev_pos = n;
-
-    // Traverse the string from right to left
-    for (int i = n - 1; i >= 0; --i) {
-        // If the current character is greater than the next character, we need to perform an operation
-        if (i < prev_pos && s[i] > s[i + 1]) {
-            ++operations;
-            prev_pos = i;
-
-            // Find the lexicographically largest character to the right of the current position
-            int max_char = *max_element(s.begin() + i + 1, s.begin() + prev_pos + 1);
-            int max_char_pos = last_occurrence[max_char - 'a'];
-
-            // Update the previous position to the position of the lexicographically largest character
-            prev_pos = max_char_pos;
+void solve()
+{
+    int n; cin>> n; 
+    string str; cin >> str; 
+    str = '$' + str; 
+    vector<int> subst; 
+    for(int i = 1; i <=n ; ++i) {
+        while ((!subst.empty() and str[subst.back()] < str[i]))
+        {
+            subst.pop_back(); 
         }
+        subst.push_back(i); 
+        
     }
-
-    return operations;
+    int ans =0 , m = subst.size()-1; 
 }
 
-int main() {
-    int t;
-    cin >> t;
-
-    while (t--) {
-        int n;
-        cin >> n;
-
-        string s;
-        cin >> s;
-
-        int result = min_operations_to_sorted(s);
-
-        if (result == 0) {
-            cout << "0\n";
-        } else if (result == -1) {
-            cout << "-1\n";
-        } else {
-            cout << result << "\n";
-        }
+int main()
+{
+    fastIO();
+    int tc = 1;
+    cin >> tc;
+    while (tc--)
+    {
+        solve();
     }
-
     return 0;
 }

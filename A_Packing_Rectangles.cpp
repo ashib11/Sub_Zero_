@@ -12,45 +12,48 @@ template <typename T>
 #define all(v) v.begin(), v.end()
 #define allr(v) v.rbegin(), v.rend()
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
-    tree_order_statistics_node_update>;
-void fastIO() {
+                         tree_order_statistics_node_update>;
+void fastIO()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
 // find_by_order();
 // order_of_key();
-ll h, w, n;
-int bin_multi(ll a, ll b) {
-    ll res = 0;
-    while (b) {
-        if (b & 1) res += a;
-        if (res >= n) return 1;
-        a += a;
-        b >>= 1;
-    }
-    return 0;
+bool f(ull mid, ull h, ull w, ull n)
+{
+    ull x = mid / h;
+    ull y = mid / w;
+    return x * y >= n ; 
 }
-bool safe(ll mid) {
-    if (bin_multi(mid / h, mid / w)) return 1;
-    return 0;
-}
-void solve() {
+void solve()
+{
+    ull h, w, n;
     cin >> h >> w >> n;
-    ll l = 1, r = 1e18;
-    while (r - l > 1) {
-        ull mid = (l + r) / 2;
-        if (safe(mid)) r = mid;
-        else l = mid + 1;
+    ull l = 0, r = 4e13, mid, ans = -1;
+    while (r >= l)
+    {
+        mid = (l + r) / 2;
+        if (f(mid, h, w, n))
+        {
+            ans = mid;
+            r = mid - 1;
+        }
+        else
+        {
+            l = mid + 1;
+        }
     }
-    if (safe(l)) cout << l << "\n";
-    else cout << r << "\n";
+    cout << ans << endl;
 }
 
-int main() {
+int main()
+{
     fastIO();
     int tc = 1;
     // cin >> tc;
-    while (tc--) {
+    while (tc--)
+    {
         solve();
     }
     return 0;

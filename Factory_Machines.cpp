@@ -36,19 +36,20 @@ void solve()
     vector<ll> v(n);
     for (auto &i : v)
         cin >> i;
-    ll l = 0, r = n;
+    ll l = 0, r = n, ans = -1;
     cout << (l + r) / 2 << endl;
-    // while (r >= l)
-    // {
-    //     int mid = (l + r) / 2;
+    while (r >= l)
+    {
+        int mid = (l + r) / 2;
 
-    //     if (fun(v, mid, t))
-    //     {
-    //         r = mid - 1;
-    //     }
-    //     else
-    //         l = mid + 1;
-    // }
+        if (fun(v, mid, t))
+        {
+            ans = mid;
+            r = mid - 1;
+        }
+        else
+            l = mid + 1;
+    }
     cout << l << endl;
 }
 
