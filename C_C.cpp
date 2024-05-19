@@ -23,24 +23,31 @@ void fastIO()
 // find_by_order();
 // order_of_key();
 // n*(n-1)*(n-2)*(n-3)/3
+bool chck(ll &mid, vector<ll> &v){
+    for(int i=0; i < v.size(); ++i ){
 
+    }
+}
 void solve()
 {
     int n;
     cin >> n;
-    int t, a;
-    cin >> t >> a;
-    int mx = INT_MAX;
-    int ans = -1;
-    for (int i = 0; i < n; ++i)
-    {
-        int x;
-        cin >> x;
-        int dif = abs((t * 1000 - x * 6) - 1000 * a);
-        if (mx > dif)
-            mx = dif, ans = i + 1;
+    vector<ll> v(n), b(n);
+    for (auto &i : v)
+        cin >> i;
+    for (auto &i : b)
+        cin >> i;
+    sort(allr(v)), sort(allr(b));
+    ll l=0, h = n; 
+    while(h >=l ){
+        ll mid = (l+h)/2; 
+        if(chck(mid, v, ) ){
+
+        }
+        else {
+
+        }
     }
-    cout << ans << endl;
 }
 
 int main()

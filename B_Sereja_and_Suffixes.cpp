@@ -1,38 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-#define pi acos(-1.0)
-#define ull unsigned long long
-#define endl "\n"
 
-void fastIO()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-}
-int N = 1e5;
 int main()
 {
-    fastIO();
-    int n, m;
+    int n, m, x;
     cin >> n >> m;
-    vector<int> v(n);
+
+    int arr[n];
     for (int i = 0; i < n; ++i)
-    {
-        cin >> v[i];
+        cin >> arr[i];
+    set<int> st; 
+    int ans[n]; 
+    for(int i=  n-1; i >=0; --i){
+        st.insert(arr[i]); 
+        ans[i] = st.size(); 
     }
-    set<int> s ;
-    int ans[N];  
-    for (int i = n - 1; i >= 0; --i)
+  
+    for (int i = 0; i < m; i++)
     {
-        s.insert(v[i]); 
-        ans[i] = s.size(); 
+        cin >> x;
+        cout << ans[x - 1] << endl;
     }
-    for (int i = 0; i < m; ++i)
-    {
-        int l;
-        cin >> l;
-       cout << ans[l-1] << endl; 
-    }
+
     return 0;
 }

@@ -18,23 +18,70 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
-
+// n*(n-1)*(n-2)*(n-3)/3
+const int N = 1e5 + 7;
+bool visited[5][N];
+int arr[5][N] = {0};
+int n, m;
+void dfs(int st, int fin)
+{
+    if (visited[st][fin] or arr[st][fin])
+        return;
+    if (st < 1 or st > 3 or fin < 1 or fin > n)
+        return;
+    visited[st][fin] = true;
+    dfs(st, fin + 1);
+    dfs(st + 1, fin);
+    dfs(st - 1, fin);
+    dfs(st, fin - 1);
+}
 void solve()
 {
-    vector<ull> v(3);
-    for (auto &i : v)
-        cin >> i;
-    int k;
-    cin >> k;
-    sort(allr(v));
-    for (int i = 0; i < k; ++i)
+
+    cin >> n >> m;
+
+    while (m--)
     {
-        v[0] *= 2;
+        int x, y;
+        char a;
+        cin >> x >> a;
+        if (a == 'H')
+            y = 1;
+        else if (a == 'M')
+            y = 2;
+        else
+            y = 3;
+        swap(x, y);
+        arr[x][y] = 1;
+        arr[x + 1][y] = 1;
+        arr[x - 1][y] = 1;
+        arr[x][y + 1] = 1;
+        arr[x][y - 1] = 1;
+        arr[x + 1][y + 1] = 1;
+        arr[x - 1][y - 1] = 1;
+        arr[x + 1][y - 1] = 1;
+        arr[x - 1][y + 1] = 1;
     }
-    ull ans = accumulate(all(v), 0);
-    cout << ans << endl;
+
+    for (int i = 1; i <= 3; ++i)
+    {
+        if (arr[i][1] == 0)
+            dfs(i, 1);
+    }
+   
+    for (int i = 1; i <= 3; ++i)
+    {
+        if (visited[i][n])
+        {
+            cout << "Yes" << endl;
+            return;
+        }
+    }
+    cout << "No" << endl;
 }
 
 int main()

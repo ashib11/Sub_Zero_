@@ -18,83 +18,35 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
+// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
-    unordered_map<string, int> mp;
-    unordered_map<int, string> sym;
-    string task;
-    string kaj;
-    int dam;
-    while (cin >> task)
+    int n;
+    cin >> n;
+    vector<ll> od;
+    ll sum = 0;
+    for (int i = 0; i < n; ++i)
     {
-        if (task == "clear")
-            mp.clear();
-        else if (task == "def")
-        {
-            cin >> kaj >> dam;
-
-            if (!mp.count(kaj))
-            {
-                mp.insert({kaj, dam});
-                sym.insert({dam, kaj});
-            }
-            else
-            {
-                mp.erase(kaj);
-                sym.erase(dam);
-                mp.insert({kaj, dam});
-                sym.insert({dam, kaj});
-            }
-        }
-        else if (task == "calc")
-        {
-            string yo;
-            vector<string> v;
-            bool jhamela = false;
-            int sign = 1;
-            int total = 0;
-            while (cin >> yo and yo != "=")
-            {
-                v.push_back(yo);
-            }
-            for (auto &it : v)
-            {
-                cout << it << " ";
-                if (it == "+")
-                    sign = 1;
-                else if (it == "-")
-                    sign = -1;
-                else
-                {
-                    if (mp.count(it))
-                    {
-                        total += sign * mp.at(it);
-                    }
-                    else
-                        jhamela = true;
-                }
-            }
-            cout << "= ";
-            if (jhamela)
-            {
-                cout << "unknown" << endl;
-            }
-            else
-            {
-                if (sym.count(total))
-                {
-                    cout << sym[total] << endl;
-                }
-                else
-                {
-                    cout << "unknown" << endl;
-                }
-            }
-        }
+        ll x;
+        cin >> x;
+        if (x % 2)
+            od.push_back(x);
+        else
+            sum += x;
     }
+    int sz = od.size();
+    int lm = sz % 2;
+    sort(allr(od));
+    for (int i = 0; i < sz - lm; ++i)
+    {
+        sum += od[i];
+    }
+    cout << sum << endl;
 }
 
 int main()

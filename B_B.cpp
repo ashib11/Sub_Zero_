@@ -24,36 +24,44 @@ void fastIO()
 // order_of_key();
 // n*(n-1)*(n-2)*(n-3)/3
 
+ll const m = 1e9 + 7;
+
 void solve()
 {
-    vector<int> v(3);
-    map<int, bool> mp;
+    // r+g=y, g+b=c, r+b=m;
+    int n = 3;
+    vector<int> v(n);
+    ll sum = 0;
     for (auto &i : v)
     {
         cin >> i;
-        mp[i] = true;
+        if (i > 0)
+            sum += 1;
     }
-    sort(all(v));
-    int dif1 = v[1] - v[0];
-    int dif2 = v[2] - v[1];
-    int mn = min(dif1, dif2);
-    for (int i = 0; i < 3; ++i)
+    sort(allr(v)); 
+    if (v[0] >= 2 and v[1] >= 2)
     {
-        int x = v[i] + mn;
-        if (mp[x] == false)
-        {
-            cout << x << endl;
-            return;
-        }
+        sum++;
+        v[0]--, v[1]--;
     }
-    cout << v[0] << endl;
+    if (v[0] >= 2 and v[2] >= 2)
+    {
+        sum++;
+        v[0]--, v[2]--;
+    }
+    if (v[1] >= 2 and v[2] >= 2)
+    {
+        sum++;
+        v[1]--, v[2]--;
+    }
+    cout << sum << endl; 
 }
 
 int main()
 {
     fastIO();
     int tc = 1;
-    // cin >> tc;
+    cin >> tc;
     while (tc--)
     {
         solve();

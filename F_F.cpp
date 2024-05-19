@@ -18,34 +18,34 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
+// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
     int n;
     cin >> n;
-    vector<ll> v(n);
-    set<ll> st;
-    vector<ll> prUn(n, 0);
-    for (int i = 0; i < n; ++i)
+    ll sum = 0;
+    while (n--)
     {
-        cin >> v[i];
-        st.insert(v[i]);
-        ll sz = st.size();
-        prUn[i] = sz;
+        ll x;
+        cin >> x;
+        sum += x;
     }
-    for (auto it : prUn)
-        cout << it << ' ';
-    cout << endl;
-    // map<ll, pair<int, int>> mp;
+    ll car = sum / 5;
+    if (sum % 5)
+        car++;
+    cout << car << endl;
 }
 
 int main()
 {
     fastIO();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     while (tc--)
     {
         solve();

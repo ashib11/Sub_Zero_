@@ -23,8 +23,8 @@ void fastIO()
 // find_by_order();
 // order_of_key();
 // n*(n-1)*(n-2)*(n-3)/3
-const int N = 1e5+10;
-ll arr[N+3];
+const int N = 2e5+10;
+ll arr[N];
 ll tre[(N * 3)+10];
 void segTree(ll node, ll b, ll e, ll cnter)
 {

@@ -12,40 +12,41 @@ template <typename T>
 #define all(v) v.begin(), v.end()
 #define allr(v) v.rbegin(), v.rend()
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
-                         tree_order_statistics_node_update>;
+      tree_order_statistics_node_update>;
 void fastIO()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 }
-// find_by_order();
-// order_of_key();
 
 void solve()
 {
-    map<int, int> mp;
-    int cnt = 0;
-    int n = 1e5;
-    for (int i = 1; i < n; ++i)
-    {
-        mp[i] = mp[i - 1] + 1;
-    }
-    int mx = -1;
-    for (auto it : mp)
-    {
-        mx = max(it.second, mx);
-    }
-    cout << mx << endl;
+
+	int a, b, c, d;
+	cin >> a >> b >> c >> d;
+	int x = min(a,b); 
+	int y = max(a,b);
+	int x1 = min(c,d);
+	int y1 = max(c,d);
+	bool hen, ten; 
+	hen = x>=x1 and x <= y1; 
+	ten = y>=x1 and y <=y1; 
+	if(hen!=ten){
+		cout << "YES" << endl; 
+	}
+	else cout << "NO" << endl; 
+
 }
 
 int main()
 {
-    fastIO();
-    int tc = 1;
-    // cin >> tc;
-    while (tc--)
-    {
-        solve();
-    }
-    return 0;
+	fastIO();
+	int tc = 1;
+	cin >> tc;
+	for (int i = 1; i <= tc; ++i)
+	{
+		// cout << "Case " << i << ": ";
+		solve();
+	}
+	return 0;
 }

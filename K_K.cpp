@@ -18,28 +18,28 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
+// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
-    ll hudai; 
-    ll n;
-    cin >> n;
-    ll l = 0, r = 3e9, ans = -1;
-    while (l <= r)
+    string str;
+    bool seven = false, sussu = false;
+    while (cin >> str)
     {
-        ll mid = (l + r) / 2;
-        if (mid * (mid + 1) / 2 <= (n + 1))
-        {
-            ans = mid;
-            l = mid + 1;
-        }
-        else
-            r = mid - 1;
+        if (str == "Sussu" or str == "Sussu." or str == "Sussu," or str == "Sussu!")
+            sussu = true;
     }
+    if (str[str.size() - 1] == '?')
+        cout << 7 << endl;
 
-    cout << n - ans + 1 << endl; 
+    else if (sussu)
+        cout << "AI SUSSU!" << endl;
+    else
+        cout << "O cara é bom!" << endl;
 }
 
 int main()

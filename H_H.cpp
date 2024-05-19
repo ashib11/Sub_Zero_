@@ -18,28 +18,34 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
+// n*(n-1)*(n-2)*(n-3)/3
 
-ll n, m;
-ll arr[12][12];
-ll func(int x, int y)
-{
-    if (x == 0 and y == 0)
-    {
-        return arr[x][y];
-    }
-    if (x < 0 || x >= n || y < 0 || y >= m)
-        return INT_MIN;
-    return (arr[x][y] + max(func(x - 1, y), func(x, y - 1)));
-}
 void solve()
 {
-    cin >> n >> m;
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < m; ++j)
-            cin >> arr[i][j];
-    cout << func(n - 1, m - 1) << endl;
+    ll l = 1, h = 1e9;
+    int nq = 50;
+    while (nq--)
+    {
+        ll mid = (l + h) / 2;
+        cout << "Q " << mid << endl;
+        cout.flush();
+        char x;
+        cin >> x;
+        if (x == '=')
+        {
+            break;
+        }
+        else if (x == '<')
+        {
+            h = mid - 1;
+        }
+        else
+            l = mid + 1;
+    }
 }
 
 int main()

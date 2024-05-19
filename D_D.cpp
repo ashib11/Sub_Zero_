@@ -26,29 +26,25 @@ void fastIO()
 
 void solve()
 {
-    int h, m;
-    cin >> h >> m;
-    int x = h / 10;
-    int xr = h % 10;
-    int c = m / 10;
-    int cr = m % 10;
+    int n;
+    cin >> n;
+    ll ans = 0;
+    vector<ll> v(n);
+    ll curSum = 0;
+    for (int i = 0; i < n; ++i)
+    {
 
-    if (xr > 5)
-    {
-        x++;
-        xr = 0;
-        m = 0;
+        ll x;
+        cin >> x;
+        v[i] = x;
+        curSum += x;
     }
-    else if (x == 2 and c > 3)
+    for (int i = 0; i < n-1; ++i)
     {
-        xr++;
-        m = 0;
+        curSum -= v[i];
+        ans += (v[i] * curSum);
     }
-    if (h == 24 and c > 3)
-    {
-        x = 0, xr = 0;
-    }
-    cout << x * 10 + xr << " " << m << endl;
+    cout << ans << endl;
 }
 
 int main()

@@ -26,27 +26,34 @@ void fastIO()
 
 void solve()
 {
-    ll n, x, y;
-    cin >> n >> x >> y;
-    ll lagbe = y * n;
-    ll extra = 0;
-    if (lagbe % 100)
-        extra++;
-    lagbe = lagbe / 100;
-    lagbe += extra;
-    if (lagbe <= x)
+    string str;
+    cin >> str;
+    int u = 0;
+    for (int i = 0; i < (int)str.size()-1; ++i)
     {
-        cout << 0 << endl;
-        return;
+        if (str[i] == str[i + 1] and str[i] == 'U')
+        {
+            u++;
+            cout << i << " " << i+1 << endl; 
+            for (int j = i + 1; j < (int)str.size(); ++j)
+            {
+                if (str[i] != str[j])
+                {
+                    // cout << i << " " << j << endl; 
+                    i = j;
+                    break; 
+                }
+            }
+        }
     }
-    cout << lagbe - x << endl;
+    cout << u << endl; 
 }
 
 int main()
 {
     fastIO();
     int tc = 1;
-    // cin >> tc;
+    cin >> tc;
     while (tc--)
     {
         solve();

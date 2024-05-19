@@ -23,7 +23,11 @@ void fastIO()
 
 void solve()
 {
-  
+    ll n, k, g;
+    cin >> n >> k >> g;
+    ll r = (g - 1) / 2;
+    ll ans = r * n;
+    cout << min((ans / g) * g, k * g) << endl;
 }
 
 int main()

@@ -18,15 +18,31 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+// (a>>b) a/(2^b)
+//(a<<b) a*(2^b)
 // find_by_order();
 // order_of_key();
+// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
-    int n, m; cin >> n >> m; 
-    vector<int> v(n); 
-    for(auto &i : v) cin >> i; 
-    
+    ll a, b;
+    cin >> a >> b;
+    ll sum = a + b;
+    ll rem = sum % 2;
+    sum /= 2;
+    if (sum == a and sum == b)
+    {
+        cout << "Ok" << endl;
+    }
+    else if (sum == a and sum + rem == b)
+    {
+        cout << "Ok" << endl;
+    }
+    else if (sum + rem == a and sum == b)
+        cout << "Ok" << endl;
+    else
+        cout << sum << ' ' << sum + rem << endl;
 }
 
 int main()

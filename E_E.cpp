@@ -26,33 +26,23 @@ void fastIO()
 
 void solve()
 {
-    int n;
-    cin >> n;
-    int mx = -1;
-    vector<int> v(n);
-    for (auto &i : v)
-        cin >> i;
-    if (is_sorted(all(v)))
+    int n, s;
+    cin >> n >> s;
+    vector<pair<ll, ll>> vp(n);
+    for (int i = 0; i < n; ++i)
     {
-        cout << "Yes" << endl;
-        return;
+        cin >> vp[i].first >> vp[i].second;
     }
+    sort(all(vp));
+    vector<ll> pre(n + 1, 0);
+    pre[0] = s;
+    for (int i = 1; i <= n; ++i)
+        pre[i] = pre[i - 1] + vp[i - 1].first;
+    ll ans = 0;
+    for (int i = 0; i < n; ++i)
+        ans += pre[i + 1] - vp[i].second;
 
-    else
-    {
-        for (int i = 0; i < n ; ++i)
-        {
-            if (v[i] + 1 >= mx)
-            {
-                mx = max(mx, v[i]);
-            }
-            else {
-                cout << "No" << endl; 
-                return; 
-            }
-        }
-        cout << "Yes" << endl;
-    }
+    cout << ans << endl;
 }
 
 int main()
