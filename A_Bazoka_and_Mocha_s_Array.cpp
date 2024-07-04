@@ -18,46 +18,32 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-const int N = 1e5;
-vector<int> g[N];
-int n, m, csum = 0;
-std::vector<int> cat(N);
-vector<bool> vis(N);
-int ans =0; 
-void dfs(int s, int sum)
-{
-    if (sum > m)
-        return;
-    vis[s] = true;
-    for (auto child : g[s])
-    {
-        if (vis[child] == false)
-        {
-            if (cat[child])
-                dfs(child, sum + 1);
-            else
-                dfs(child, 0);
-        }
-    }
-    if(s!=1 and g[s].size()==1) ans++; 
-}
 
 void solve()
 {
-    cin >> n >> m;
-    for (int i = 1; i <= n; ++i)
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &i : v)
+        cin >> i;
+    if (is_sorted(all(v)))
     {
-        cin >> cat[i];
+        cout << "YES" << endl;
+        return;
     }
-    for (int i = 1; i < n; ++i)
+    int first = -1;
+    for (int i = 0; i < n - 1; ++i)
     {
-        int x, y;
-        cin >> x >> y;
-        g[x].push_back(y);
-        g[y].push_back(x);
+        if (v[i] > v[i + 1])
+        {
+            first = i;
+            break;
+        }
     }
-    dfs(1, cat[1]);
-    cout << ans << endl; 
+    if(first!=-1){
+        cout << "YES" << endl; 
+        return; 
+    }
 }
 
 int main()

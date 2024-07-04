@@ -20,44 +20,44 @@ void fastIO()
 }
 const int N = 1e5;
 vector<int> g[N];
-int n, m, csum = 0;
-std::vector<int> cat(N);
-vector<bool> vis(N);
-int ans =0; 
-void dfs(int s, int sum)
-{
-    if (sum > m)
-        return;
-    vis[s] = true;
-    for (auto child : g[s])
-    {
-        if (vis[child] == false)
-        {
-            if (cat[child])
-                dfs(child, sum + 1);
-            else
-                dfs(child, 0);
+int level[N];
+bool vis[N];
+int inD[N], outD[N];
+int cnt=0;  
+void dfs(int s){
+    vis[s] = true; 
+    inD[s] = ++cnt;
+    for(auto child : g[s]){
+        if(!vis[child]){
+            dfs(child); 
         }
     }
-    if(s!=1 and g[s].size()==1) ans++; 
+    outD[s] = ++cnt; 
 }
-
 void solve()
 {
-    cin >> n >> m;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i)
+    {
+        int u, k;
+        cin >> u >> k;
+        for (int i = 0; i < k; ++i)
+        {
+            int v;
+            cin >> v;
+            g[u].push_back(v);
+        }
+    }
+    for(int i=1 ; i <= n; ++i){
+        if(vis[i]==false){
+            dfs(i); 
+        }
+    }
     for (int i = 1; i <= n; ++i)
     {
-        cin >> cat[i];
+        cout << i << ' ' << inD[i] << ' ' << outD[i] << endl; 
     }
-    for (int i = 1; i < n; ++i)
-    {
-        int x, y;
-        cin >> x >> y;
-        g[x].push_back(y);
-        g[y].push_back(x);
-    }
-    dfs(1, cat[1]);
-    cout << ans << endl; 
 }
 
 int main()

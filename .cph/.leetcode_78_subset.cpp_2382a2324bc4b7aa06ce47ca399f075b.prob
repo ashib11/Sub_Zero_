@@ -1,0 +1,1 @@
+{"name":"Local: leetcode_78_subset","url":"/home/ashib/Sub_Zero_/leetcode_78_subset.cpp","tests":[{"id":1719888241492,"input":"3 5 6 1\n1 2 3\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashib/Sub_Zero_/leetcode_78_subset.cpp","group":"local","local":true}

@@ -18,46 +18,39 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-const int N = 1e5;
-vector<int> g[N];
-int n, m, csum = 0;
-std::vector<int> cat(N);
-vector<bool> vis(N);
-int ans =0; 
-void dfs(int s, int sum)
+
+int n, l, r, d;
+void sbst_gen(vector<int> &v)
 {
-    if (sum > m)
-        return;
-    vis[s] = true;
-    for (auto child : g[s])
+    int ans = 0;
+    int limit = (1 << n);
+    for (int i = 0; i < limit; ++i)
     {
-        if (vis[child] == false)
+        vector<int> tmp;
+        int sum = 0;
+        for (int j = 0; j < n; ++j)
         {
-            if (cat[child])
-                dfs(child, sum + 1);
-            else
-                dfs(child, 0);
+            if (i & (1 << j))
+            {
+                sum += v[j];
+                tmp.push_back(v[j]);
+            }
+        }
+        sort(all(tmp));
+        if (sum >= l and sum <= r and tmp.back() - tmp[0] >= d)
+        {
+            ans++;
         }
     }
-    if(s!=1 and g[s].size()==1) ans++; 
+    cout << ans << endl;
 }
-
 void solve()
 {
-    cin >> n >> m;
-    for (int i = 1; i <= n; ++i)
-    {
-        cin >> cat[i];
-    }
-    for (int i = 1; i < n; ++i)
-    {
-        int x, y;
-        cin >> x >> y;
-        g[x].push_back(y);
-        g[y].push_back(x);
-    }
-    dfs(1, cat[1]);
-    cout << ans << endl; 
+    cin >> n >> l >> r >> d;
+    vector<int> v(n);
+    for (auto &i : v)
+        cin >> i;
+    sbst_gen(v);
 }
 
 int main()

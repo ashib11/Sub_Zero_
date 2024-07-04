@@ -18,46 +18,39 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-const int N = 1e5;
-vector<int> g[N];
-int n, m, csum = 0;
-std::vector<int> cat(N);
-vector<bool> vis(N);
-int ans =0; 
-void dfs(int s, int sum)
+void yo(vector<int> &v)
 {
-    if (sum > m)
-        return;
-    vis[s] = true;
-    for (auto child : g[s])
+    int n = v.size();
+    int suma = 0, sumb = 0;
+    for (int mask = 0; mask < (1 << n); ++mask)
     {
-        if (vis[child] == false)
+        int sum = 0;
+        for (int i = 0; i < n; ++i)
         {
-            if (cat[child])
-                dfs(child, sum + 1);
+            if (mask & (1 << i))
+            {
+                sum += v[i];
+            }
             else
-                dfs(child, 0);
+                sum -= v[i];
+        }
+
+        if (sum % 360 == 0)
+        {
+            cout << "YES" << endl;
+            return; 
         }
     }
-    if(s!=1 and g[s].size()==1) ans++; 
+    cout << "NO" << endl;
 }
-
 void solve()
 {
-    cin >> n >> m;
-    for (int i = 1; i <= n; ++i)
-    {
-        cin >> cat[i];
-    }
-    for (int i = 1; i < n; ++i)
-    {
-        int x, y;
-        cin >> x >> y;
-        g[x].push_back(y);
-        g[y].push_back(x);
-    }
-    dfs(1, cat[1]);
-    cout << ans << endl; 
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &i : v)
+        cin >> i;
+    yo(v);
 }
 
 int main()

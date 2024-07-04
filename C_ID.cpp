@@ -18,46 +18,44 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-const int N = 1e5;
-vector<int> g[N];
-int n, m, csum = 0;
-std::vector<int> cat(N);
-vector<bool> vis(N);
-int ans =0; 
-void dfs(int s, int sum)
+bool cmp(pair<int, int> a, pair<int, int> b)
 {
-    if (sum > m)
-        return;
-    vis[s] = true;
-    for (auto child : g[s])
+    if (a.first == b.first)
     {
-        if (vis[child] == false)
-        {
-            if (cat[child])
-                dfs(child, sum + 1);
-            else
-                dfs(child, 0);
-        }
+        return a.second < b.second;
     }
-    if(s!=1 and g[s].size()==1) ans++; 
+    return a.first < b.first;
 }
-
 void solve()
 {
+    int n, m;
     cin >> n >> m;
-    for (int i = 1; i <= n; ++i)
+    vector<int> y(m), p(m);
+    map<int, int> mp;
+    vector<pair<int, int>> vp;
+    vp.push_back({0, 0});
+    for (int i = 0; i < m; ++i)
     {
-        cin >> cat[i];
+        cin >> p[i] >> y[i];
+        vp.push_back({p[i], y[i]});
     }
-    for (int i = 1; i < n; ++i)
+    sort(all(vp), cmp);
+    int k = 0;
+    for (int i = 1; i <= m; ++i)
     {
-        int x, y;
-        cin >> x >> y;
-        g[x].push_back(y);
-        g[y].push_back(x);
+        if (vp[i].first != vp[i - 1].first)
+        {
+             k = 1;
+        }
+        else
+            ++k;
+        mp[vp[i].second] = k;
     }
-    dfs(1, cat[1]);
-    cout << ans << endl; 
+    for (int i = 0; i < m; ++i)
+    {
+        cout << setfill('0') << setw(6) << p[i];
+        cout << setfill('0') << setw(6) << mp[y[i]] << endl;
+    }
 }
 
 int main()

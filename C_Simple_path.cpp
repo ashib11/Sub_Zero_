@@ -18,46 +18,48 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-const int N = 1e5;
+const int N = 2e5;
 vector<int> g[N];
-int n, m, csum = 0;
-std::vector<int> cat(N);
-vector<bool> vis(N);
-int ans =0; 
-void dfs(int s, int sum)
+vector<bool> vis(N, false);
+vector<int> path;
+bool found = false;
+void dfs(int p, int target)
 {
-    if (sum > m)
-        return;
-    vis[s] = true;
-    for (auto child : g[s])
+    vis[p] = true;
+    path.push_back(p);
+
+    if (p == target)
     {
+        found = true;
+        return;
+    }
+    for (auto child : g[p])
+    {
+
         if (vis[child] == false)
         {
-            if (cat[child])
-                dfs(child, sum + 1);
-            else
-                dfs(child, 0);
+
+            dfs(child, target);
+            if (found)
+                return;
         }
     }
-    if(s!=1 and g[s].size()==1) ans++; 
+    path.pop_back();
 }
-
 void solve()
 {
-    cin >> n >> m;
-    for (int i = 1; i <= n; ++i)
-    {
-        cin >> cat[i];
-    }
+    int n, x, y;
+    cin >> n >> x >> y;
     for (int i = 1; i < n; ++i)
     {
-        int x, y;
-        cin >> x >> y;
-        g[x].push_back(y);
-        g[y].push_back(x);
+        int a, b;
+        cin >> a >> b;
+        g[a].push_back(b);
+        g[b].push_back(a);
     }
-    dfs(1, cat[1]);
-    cout << ans << endl; 
+    dfs(x, y);
+    for (auto it : path)
+        cout << it << ' ';
 }
 
 int main()
