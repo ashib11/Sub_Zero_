@@ -21,18 +21,46 @@ void fastIO()
 
 void solve()
 {
-    map<int, int> mp;
     int n;
     cin >> n;
+    vector<int> a(n), b(n);
+    map<ll, ll> ma, mb;
+    for (auto &i : a)
     {
-        int x;
-        cin >> x;
-        mp[x]++;
+        cin >> i;
+        ma[i] = 1;
     }
-    int ans = -1;
-    for (auto it : mp)
+    for (auto &i : b)
     {
-        ans = max(ans, it.second);
+        cin >> i;
+        mb[i] = 1;
+    }
+    vector<int> frea(n + 1, 1), freb(n + 1, 1);
+
+    for (int i = 1; i < n; ++i)
+    {
+        if (a[i] == a[i - 1])
+        {
+            frea[i] = frea[i - 1] + 1;
+            ma[a[i]] = max(ma[a[i]], (ll)frea[i]);
+        }
+    }
+    for (int i = 1; i < n; ++i)
+    {
+        if (b[i] == b[i - 1])
+        {
+            freb[i] = freb[i - 1] + 1;
+            mb[b[i]] = max(mb[b[i]], (ll)freb[i]);
+        }
+    }
+    ll ans = 0;
+    for (auto [k, val] : ma)
+    {
+        ans = max(ans, (ma[k] + mb[k]));
+    }
+    for (auto [k, val] : mb)
+    {
+        ans = max(ans, (ma[k] + mb[k]));
     }
     cout << ans << endl;
 }

@@ -12,32 +12,29 @@ template <typename T>
 #define all(v) v.begin(), v.end()
 #define allr(v) v.rbegin(), v.rend()
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
-                         tree_order_statistics_node_update>;
+      tree_order_statistics_node_update>;
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-// find_by_order();
-// order_of_key();
 
 void solve()
 {
-    vector<ll> v(3);
-    for (auto &i : v)
-        cin >> i;
-    ll x = abs(v[0] - v[1]), y = abs(v[0] - v[2]), z = abs(v[1] - v[2]);
-    auto it = find(all(v), x);
-    auto it1 = find(all(v), y);
-    auto it2 = find(all(v), z);
-    if (it != v.end() || it1 != v.end() || it2 != v.end())
-    {
+    int a, b, c;
+    cin >> a >> b >> c;
+    ll d = abs(a - c);
+    
+    if (d > b and d % b == 0) {
         cout << "YES" << endl;
-        return;
+        return; 
     }
-    cout << "NO" << endl;
+    ll x = b + c;
+    if (x % a == 0) {
+        cout << "YES" << endl ;
+    }
+    else cout << "NO" << endl;
 }
-
 int main()
 {
     fastIO();

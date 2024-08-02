@@ -18,36 +18,36 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+
 void solve()
 {
-    int n;
-    cin >> n;
+    ll n, k;
+    cin >> n >> k;
     vector<ll> v(n);
-    for (auto &u : v)
-        cin >> u;
-    vector<ll> b(n);
-    ll k = 1;
-    for (int i = 0; i < n; ++i)
+    for (auto &i : v)
+        cin >> i;
+    ll ans2 = 0;
+
+    for (int i = 1; i < n; ++i)
     {
-        while (1)
+        if (v[i] <= v[i - 1])
         {
-            if (v[i] != k)
-            {
-                b[i] = k;
-                k++; 
-                break;
-            }
-            k++;
+            ll l = v[i - 1] - v[i] + 1;
+            ll ans = (l / k);
+            if (l % k)
+                ans++;
+            v[i] += (ans * k);
+            ans2 += ans;
         }
     }
-   
-    cout << b[n-1] << endl; 
+    cout << ans2 << endl;
 }
+
 int main()
 {
     fastIO();
-    int tc;
-    cin >> tc;
+    int tc = 1;
+    // cin >> tc;
     while (tc--)
     {
         solve();

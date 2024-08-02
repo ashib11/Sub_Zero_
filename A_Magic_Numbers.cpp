@@ -11,7 +11,6 @@ template <typename T>
 #define endl "\n"
 #define all(v) v.begin(), v.end()
 #define allr(v) v.rbegin(), v.rend()
-#define pf push_front
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
                          tree_order_statistics_node_update>;
 void fastIO()
@@ -19,38 +18,39 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-//find_by_key(); 
-//value_by_key(); 
+
 void solve()
 {
-     int n, s;
-    cin>>n>>s;
-    if(n==1 && s==0)cout<<"0 0\n";
-    else if(s==0 || s>n*9)cout<<"-1 -1\n";
-    else {
-        int m=n, k=s;
-        deque<int>v;
-        while(m--){
-            if(s<=9 && m==0)v.pf(s);
-            else if(s==1){v.pf(0);continue;}
-            else if(s>9)v.pf(9),s-=9;
-            else v.pf(s-1),s=1;
+    string str;
+    cin >> str;
+    int n = str.size();
+    for (int i = n - 1; i >= 0; --i)
+    {
+        if (i - 2 >= 0 and str[i] == '4' and str[i - 1] == '4' and str[i - 2] == '1')
+        {
+            continue;
         }
-        for(int i:v)cout<<i;
-        cout<<" ";
-        while(n--){
-            if(k>=9)cout<<9,k-=9;
-            else cout<<k,k-=k;
+        else if (i - 1 >= 0 and str[i] == '4' and str[i - 1] == '1')
+            continue;
+
+        else if (str[i] == '1')
+        {
+            continue;
         }
- 
+        else
+        {
+            cout << "NO" << endl;
+            return;
+        }
     }
+    cout << "YES" << endl;
 }
+
 int main()
 {
     fastIO();
-    int tc;
+    int tc = 1;
     // cin >> tc;
-    tc = 1;
     while (tc--)
     {
         solve();
