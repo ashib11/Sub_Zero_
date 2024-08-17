@@ -23,16 +23,23 @@ void solve()
 {
     int n, r, b;
     cin >> n >> r >> b;
-    ll mx = b+1 ;
-    ll seg_avg = r / mx;
-    ll seg_mx = seg_avg;
-    if (r % mx)
-        seg_mx++;
-    for(int i=0; i < b; ++i){
-        cout << string(seg_avg, 'R') << 'B'; 
+    int st = r / (b + 1);
+    int yo = r % (b + 1);
+    for (int i = 0; i < b; ++i)
+    {
+        for (int j = 0; j < st; ++j)
+        {
+            cout << "R";
+        }
+        if (i < yo)
+            cout << "R";
+        cout << "B";
     }
-    cout << string(seg_mx, 'R') << endl; 
-    // cout << seg_mx << ' ' << seg_avg << endl; 
+    for (int i = 0; i < st; ++i)
+    {
+        cout << "R";
+    }
+    cout << endl;
 }
 
 int main()

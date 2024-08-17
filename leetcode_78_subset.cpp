@@ -47,7 +47,6 @@ void solve()
     int cnt = 0;
     for (auto it : gen_sub)
     {
-        // cout << it.size() << endl;
         if (it.size())
         {
             int mn = *min_element(all(it));

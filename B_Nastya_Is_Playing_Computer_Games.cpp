@@ -27,16 +27,21 @@ void solve()
     if (k == 1 or k == n)
     {
         ans += (n - 2) * 3;
-        cout << ans << endl;
-        return;
     }
-    ll val = 0;
-    for (int i = 1; i <= n; ++i)
+    else
     {
-        val += 3;
+        int dis = k ;
+        int dis2 = n - k + 1;
+        int val = min(dis, dis2);
+        int val2 = max(dis, dis2);
+         
+        val -= 2;
+        val2--; 
+        ans += (val) * 3;
+        ans += (k - 1);
+        ans += (val2 * 3);
     }
-    val += min(n - k, k - 1);
-    cout << val << endl; 
+    cout << ans << endl;
 }
 
 int main()

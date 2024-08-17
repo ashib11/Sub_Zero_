@@ -24,8 +24,8 @@ void solve()
     int n, s, r;
     cin >> n >> s >> r;
     s-= n, r-=(n-1); 
-    int mx = s-r+1; 
-    cout << mx << ' ';
+    int mx = s-r; 
+    cout << mx+1 << ' ';
     for(int i=1; i < n; ++i){
         int val = min(mx, r);
         r-=val; 

@@ -34,11 +34,12 @@ void solve()
         ans.push_back(v[n - i - 1]);
     }
     if(n%2){
-        ans.push_back(v[(n+1)/2]); 
+        ans.push_back(v[(n)/2]); 
     }
     int cur_sum=0; 
     for(int i=0; i < n; ++i){
         if(cur_sum == ans[i]){
+
             cout << "NO" << endl;
             return; 
         }

@@ -12,7 +12,7 @@ template <typename T>
 #define all(v) v.begin(), v.end()
 #define allr(v) v.rbegin(), v.rend()
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
-      tree_order_statistics_node_update>;
+                         tree_order_statistics_node_update>;
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
@@ -21,19 +21,28 @@ void fastIO()
 
 void solve()
 {
-    int a, b, c;
-    cin >> a >> b >> c;
-    ll d = abs(a - c);
-    
-    if (d > b and d % b == 0) {
+    vector<int> v(3);
+    for (auto &i : v)
+        cin >> i;
+    int f = 2 * v[1] - v[2];
+    if (f != 0 and f >= v[0] and f % v[0] == 0)
+    {
+        cout << "1YES" << endl;
+        return;
+    }
+    int s = (v[0] + v[2]) / 2;
+    if (s % v[1] % 2 == 0 and s != 0 and s >= v[1])
+    {
         cout << "YES" << endl;
-        return; 
+        return;
     }
-    ll x = b + c;
-    if (x % a == 0) {
-        cout << "YES" << endl ;
+    int th = (v[1] - v[0]);
+    if (th != 0 and th % v[2] == 0 and th >= v[2])
+    {
+        cout << "YES" << endl;
+        return;
     }
-    else cout << "NO" << endl;
+    cout << "NO" << endl;
 }
 int main()
 {

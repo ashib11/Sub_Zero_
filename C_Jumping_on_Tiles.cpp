@@ -25,7 +25,6 @@ void solve()
     cin >> str;
     int n = str.size();
     vector<pair<int, int>> vp;
-    // vp.push_back({(str[0] - 'a'), 0});
     for (int i = 1; i < n - 1; ++i)
     {
         if (str[i] >= min(str[0], str[n - 1]) and str[i] <= max(str[0], str[n - 1]))
@@ -38,6 +37,7 @@ void solve()
         sort(allr(vp));
     else
         sort(all(vp));
+        
     vp.push_back({(str[n - 1] - 'a'), n });;
     ll cost = abs((str[0] - 'a') - vp[0].first);
     for (int i = 0; i < vp.size() - 1; ++i)

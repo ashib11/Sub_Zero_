@@ -21,14 +21,16 @@ void fastIO()
 
 void solve()
 {
-   int x; cin >> x; 
-   ll t = x%14; 
-   ll d = x/14; 
-   if(t >=1 and t <= 6 and d>=1){
-    cout << "YES" << endl; 
-   }
-   else cout << "NO" << endl; 
- 
+    ll x;
+    cin >> x;
+    ll t = x % 14;
+    ll d = x / 14;
+    if (t >= 1 and t <= 6 and d >= 1)
+    {
+        cout << "YES" << endl;
+    }
+    else
+        cout << "NO" << endl;
 }
 
 int main()

@@ -18,7 +18,7 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-const int N = 2e5;
+const int N = 2e5+10;
 vector<int> g[N];
 vector<bool> vis(N, false);
 vector<int> path;

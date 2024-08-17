@@ -18,43 +18,47 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-// (a>>b) a/(2^b)
-//(a<<b) a*(2^b)
-// find_by_order();
-// order_of_key();
-// n*(n-1)*(n-2)*(n-3)/3
-bool chck(ll &mid, vector<ll> &v){
-    for(int i=0; i < v.size(); ++i ){
 
-    }
-}
 void solve()
 {
     int n;
     cin >> n;
-    vector<ll> v(n), b(n);
+    vector<int> v(n);
+    vector<int> od, ev;
     for (auto &i : v)
+    {
         cin >> i;
-    for (auto &i : b)
-        cin >> i;
-    sort(allr(v)), sort(allr(b));
-    ll l=0, h = n; 
-    while(h >=l ){
-        ll mid = (l+h)/2; 
-        if(chck(mid, v, ) ){
-
+        if (i % 2)
+            od.push_back(i);
+        else
+            ev.push_back(i);
+    }
+    if (od.size() % 2 == 0 and ev.size() % 2 == 0)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        sort(all(v));
+        for (int i = 0; i < od.size(); ++i)
+        {
+            for (int j = 0; j < ev.size(); ++j)
+            {
+                if (abs(od[i] - ev[j]) == 1)
+                {
+                    cout << "YES" << endl;
+                    return;
+                }
+            }
         }
-        else {
-
-        }
+        cout << "NO" << endl;
     }
 }
-
 int main()
 {
     fastIO();
     int tc = 1;
-    // cin >> tc;
+    cin >> tc;
     while (tc--)
     {
         solve();

@@ -24,7 +24,7 @@ void solve()
     int n, m;
     cin >> n >> m;
     ll ans = 0;
-    vector<int> v(6, 0), b(6, 0);
+    vector<ll> v(6, 0), b(6, 0);
     for (int i = 1; i <= n; ++i)
     {
         int val = i % 5;
@@ -37,8 +37,8 @@ void solve()
     }
     for (int i = 0; i < 5; ++i)
     {
-        cout << (5-i) << ' ' <<(5-i)%5 << endl; 
-        // ans += (v[i]) * b[(5 - i)];
+
+        ans += (v[i]) * b[(5 - i)%5];
     }
     cout << ans << endl;
 }

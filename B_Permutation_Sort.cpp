@@ -36,7 +36,7 @@ void solve()
         cout << 1 << endl;
         return;
     }
-    if (v[0] == n and v[n - 1] == n)
+    if (v[0] == n and v[n - 1] == 1)
     {
         cout << 3 << endl;
         return;

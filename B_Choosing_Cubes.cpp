@@ -29,7 +29,6 @@ void solve()
 
     ll tgt = v[f - 1];
     sort(allr(v));
-    // cout << tgt << endl; 
     if(tgt < v[k-1]){
         cout << "NO" << endl; 
         return; 

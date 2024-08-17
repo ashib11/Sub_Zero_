@@ -43,7 +43,7 @@ void solve()
         // cout << dig << endl; 
         if (isGood(dig))
         {
-            cout << 'w'<< endl; 
+            // cout << 'w'<< endl; 
             cout << 1 << endl;
             cout << dig << endl;
             return;

@@ -1,43 +1,49 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
+using namespace __gnu_pbds;
+template <typename T>
 #define ll long long
 #define pi acos(-1.0)
 #define ull unsigned long long
 #define endl "\n"
-
+#define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+
 void solve()
 {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i)
-    {
-        cin >> v[i];
+   int n; cin >> n; 
+   vector<int> v(n);
+   int ans =0;
+//    1 1 4 5
+   for(auto &i : v) cin >> i; 
+   for(int i =0; i < n; ++i){
+    int mx = max(v[i], v[i+1]);
+    int mn = min(v[i], v[i+1]); 
+    int def = mx/mn;
+    if(def > 2){
+        ans++; 
     }
-    int ans =0; 
-    for (int i = 0; i < n-1; ++i)
-    {
-        int a = max(v[i], v[i + 1]);
-        int b = min(v[i], v[i + 1]);
-        while (a *2 < b )
-        {
-                ans ++; 
-                a*=2; 
-        }
-    }
-    cout << ans << endl; 
+   }
 }
+
 int main()
 {
     fastIO();
-    int tc;
+    int tc = 1;
     cin >> tc;
     while (tc--)
+    {
         solve();
+    }
     return 0;
 }

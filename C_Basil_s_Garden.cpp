@@ -26,8 +26,6 @@ void solve()
     vector<int> v(n + 1, 0);
     for (int i = 0; i < n; ++i)
         cin >> v[i];
-    int ans = 0;
-    int inx = -1;
     ll mx = -1;
 
     for (int i = 0; i < n; ++i)

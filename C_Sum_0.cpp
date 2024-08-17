@@ -39,7 +39,7 @@ void solve()
         sr += vp[i].second;
     }
     
-    if (sl > 0 || sr < 0)
+    if (sl > 0 or sr < 0)
     {
         cout << "No" << endl;
         return;

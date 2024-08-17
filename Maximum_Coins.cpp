@@ -38,10 +38,7 @@ void solve()
         ++k;  
     }
     cout << ans << endl;
-    // for(int i= n; i > x; --i){
-    //     ans+= pow(2,i);
-    // }
-    // cout << ans << endl;
+
 }
 
 int main()

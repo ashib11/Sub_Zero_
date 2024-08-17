@@ -28,18 +28,31 @@ void solve()
     {
         q.push(i);
     }
-    cout << 2 << endl; 
+    cout << 2 << endl;
     for (int i = 1; i < n; ++i)
     {
         ll b = q.top();
         q.pop();
         ll a = q.top();
-        q.pop(); 
+        q.pop();
         ll k = ((a + b) + 1) / 2;
         cout << a << ' ' << b << endl;
         q.push(k);
     }
-    // cout << q.top() << ' ' << q.size() << endl; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 }
 
 int main()

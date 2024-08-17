@@ -18,34 +18,14 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-// (a>>b) a/(2^b)
-//(a<<b) a*(2^b)
-// find_by_order();
-// order_of_key();
-// n*(n-1)*(n-2)*(n-3)/3
-bool chck(ll mean, ll mid, ll k)
-{
-    if ((mid * mean) > k)
-        return false;
-    return true;
-}
+
 void solve()
 {
-    ll n, k;
-    cin >> n >> k;
-    ll l = 0, r = k;
-    while (r >= l)
-    {
-        ll mid = (l + r) / 2;
-        ll mean = (n + 1) / 2;
-        if (chck(mean, mid, k))
-        {
-            l = mid + 1;
-        }
-        else
-            r = mid - 1;
-    }
-    cout << l << endl;
+    int n, s;
+    cin >> n >> s;
+    int k = (n + 1) / 2;
+    n -= (k - 1);
+    cout << s / n << endl;
 }
 
 int main()

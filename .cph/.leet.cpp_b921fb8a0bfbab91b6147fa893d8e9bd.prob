@@ -1,0 +1,1 @@
+{"name":"Local: leet","url":"/home/ashib/Sub_Zero_/leet.cpp","tests":[{"id":1723594823341,"input":"abc pqr","output":"apbqcr"},{"id":1723594855889,"input":"abcd pq","output":"apbqcd"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashib/Sub_Zero_/leet.cpp","group":"local","local":true}

@@ -18,32 +18,73 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+vector<vector<int>> v(50, vector<int>(50));
+void preCal()
+{
 
+    v[0][0] = 0;
+    v[1][0] = 1;
+    v[0][1] = 1;
+    v[1][1] = 0;
+    int j = 2;
+    for (int i = 1; i <= 24; ++i)
+    {
+        if (i % 2)
+        {
+            v[0][j] = 1;
+            v[1][j] = 0;
+            v[0][++j] = 0;
+            v[1][j++] = 1;
+        }
+        else
+        {
+            v[0][j] = 0;
+            v[1][j] = 1;
+            v[0][++j] = 1;
+            v[1][j++] = 0;
+        }
+    }
+    int row = 2;
+    for (int i = 1; i <= 24; ++i)
+    {
+
+        if (i % 2)
+        {
+            for (int j = 0; j < 50; ++j)
+            {
+                v[row][j] = v[1][j];
+            }
+            row++;
+            for (int j = 0; j < 50; ++j)
+            {
+                v[row][j] = v[0][j];
+            }
+            row++;
+        }
+        else
+        {
+            for (int j = 0; j < 50; ++j)
+            {
+                v[row][j] = v[0][j];
+            }
+            row++;
+            for (int j = 0; j < 50; ++j)
+            {
+                v[row][j] = v[1][j];
+            }
+            row++;
+        }
+    }
+}
 void solve()
 {
     int n, m;
     cin >> n >> m;
-    string a = "10", b = "01";
-    for (int i = 1; i <= n; ++i)
+    for (int i = 0; i < n; ++i)
     {
-        if (i % 2)
+        for (int j = 0; j < m; ++j)
         {
-            cout << a;
-        }
-        else
-        {
-            cout << b;
-        }
-        for (int j = 2; j <= n; ++j)
-        {
-            if (j % 2)
-            {
-                cout << a;
-            }
-            else
-            {
-                cout << b;
-            }
+            cout << v[i][j] << ' ';
         }
         cout << endl;
     }
@@ -54,6 +95,7 @@ int main()
     fastIO();
     int tc = 1;
     cin >> tc;
+    preCal();
     while (tc--)
     {
         solve();

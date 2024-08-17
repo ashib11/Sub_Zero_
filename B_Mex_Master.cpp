@@ -37,7 +37,7 @@ void solve()
     {
         cout << 0 << endl;
     }
-   else  if(mp[1] >=2 or  f or mp[0]==n){
+   else  if( f or mp[0]==n){
         cout << 1 << endl; 
     }
     else cout << 2 << endl; 
