@@ -33,7 +33,6 @@ void solve()
     }
     vector<int> checker(n, 0);
     string ans = "";
-    int lst_col = 0;
     for (int col = 0; col < m; ++col)
     {
         map<char, int> fre;

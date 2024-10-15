@@ -1,73 +1,86 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
+using namespace __gnu_pbds;
+template <typename T>
 #define ll long long
 #define pi acos(-1.0)
 #define ull unsigned long long
 #define endl "\n"
-
+#define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
 void fastIO()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-bool cmp(pair<ll, pair<ll, ll>> &a, pair<ll, pair<ll, ll>> &b)
+bool cmp(pair<pair<int, int>, int> a, pair<pair<int, int>, int> b)
 {
-    if (a.second.first != b.second.first)
-        return a.second.first > b.second.first;
-    else if (a.second.first == b.second.first)
-        return a.second.second < b.second.second;
-
-    return a.first < b.first;
+    if (a.first.first == b.first.first)
+    {
+        return a.first.second < b.first.second;
+    }
+    return a.first.first > b.first.first;
 }
-
 void solve()
 {
-    ll n, m, h, rcnt, rpen;
+    ll n, m, h;
     cin >> n >> m >> h;
-    vector<pair<ll, ll>> v;
-    for (ll i = 0; i < n; i++)
+    vector<pair<pair<ll, ll>, ll>> vp;
+    for (int j = 1; j <= n; ++j)
     {
-        ll ara[m];
-        for (ll &i : ara)
-            cin >> i;
-        sort(ara, ara + m);
-        for (ll i = 1; i < m; i++)
-            ara[i] += ara[i - 1];
-        ll cnt = 0, pen = 0;
-        for (ll i = 0; i < m; i++)
+        vector<ll> v;
+        for (int i = 0; i < m; ++i)
         {
-            if (ara[i] <= h)
+            ll x;
+            cin >> x;
+            v.push_back(x);
+        }
+        ll cur = 0, solv = 0, pt = 0;
+        sort(all(v));
+        bool yo = true;
+        for (int i = 0; i < m; ++i)
+        {
+            if (cur + v[i] <= h)
             {
-                cnt = i + 1;
-                pen += ara[i];
+                cur += v[i];
+                pt += cur;
+                solv++;
+            }
+            else
+            {
+                vp.push_back({{solv, pt}, j});
+                yo = false;
+                break;
             }
         }
-        if (i == 0)
-        {
-            rcnt = cnt;
-            rpen = pen;
-        }
-        v.push_back({cnt, pen});
+        if (yo)
+            vp.push_back({{solv, pt}, j});
     }
-    sort(v.begin(), v.end(), cmp);
-    for (ll i = 0; i < v.size(); i++)
+    sort(all(vp), cmp);
+    for (int i = 0; i < n; ++i)
     {
-        if (v[i].first == rcnt && v[i].second == rpen)
+        // cout << vp[i].first.first << ' ' << vp[i].first.second << ' ' << vp[i].second << endl; 
+        if (vp[i].second == 1)
         {
             cout << i + 1 << endl;
             return;
         }
     }
 }
+
 int main()
 {
     fastIO();
-    int tc;
+    int tc = 1;
     cin >> tc;
     while (tc--)
     {
         solve();
-        // cout << endl;
     }
     return 0;
 }

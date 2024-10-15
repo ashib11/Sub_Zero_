@@ -42,10 +42,9 @@ void solve()
     int p = 0, q = 0;
     for (auto [a, b] : ans)
     {
-        // cout << a << ' ' << b << endl;
-        p += a, q += b;
+        cout << a << ' ' << b << endl;
     }
-    cout << p/k  << ' ' << q/k << endl;
+    
 }
 
 int main()

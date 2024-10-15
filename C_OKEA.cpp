@@ -21,7 +21,8 @@ void fastIO()
 
 void solve()
 {
-    int n, k; cin >> n >> k; 
+    int n, k;
+    cin >> n >> k;
     if (k == 1)
     {
         cout << "YES" << endl;
@@ -52,7 +53,7 @@ void solve()
                 cout << b << ' ';
                 b += 2;
             }
-                }
+        }
         cout << endl;
     }
 }

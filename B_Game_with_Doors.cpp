@@ -39,7 +39,6 @@ void solve()
         return;
     }
     map<int, int> mp;
-    // cout << vp[0].first << ' ' << vp[0].second << endl;
     for (int i = vp[0].first; i <= vp[0].second; ++i)
     {
         mp[i]++;

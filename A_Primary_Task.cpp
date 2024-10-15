@@ -29,7 +29,6 @@ void solve()
         return;
     }
     string tmp = str.substr(0, 2);
-    // cout << tmp << endl;
     if (tmp != "10")
     {
         cout << "NO" << endl;

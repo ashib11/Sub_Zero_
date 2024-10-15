@@ -18,34 +18,37 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-// (a>>b) a/(2^b)
-//(a<<b) a*(2^b)
-// find_by_order();
-// order_of_key();
-// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
-    ll n, k;
+    int n, k;
     cin >> n >> k;
-    vector<pair<ll, ll>> vp(n);
-    for (int i = 0; i < n; ++i)
-        cin >> vp[i].first;
-    for (int i = 0; i < n; ++i)
-        cin >> vp[i].second;
+    vector<pair<int, int>> vp(n);
+    for (auto &[a, b] : vp)
+        cin >> a;
+    for (auto &[a, b] : vp)
+        cin >> b;
     sort(all(vp));
-    ll damage = 0;
-    for (int i = 0; i < n; ++i)
+    vector<int> h; 
+    for (auto [a, b] : vp)
+        h.push_back(a);
+    
+    for (int i = n - 2; i >= 0; --i)
     {
-        damage += k;
-        ll life = vp[i].second;
-        life -= damage;
-        if (life > 0)
-            k -= vp[i].first;
+        vp[i].second = min(vp[i].second, vp[i + 1].second);
     }
-    if(k >=0)
-        cout <<"YES" << endl; 
-    else cout << "NO" << endl; 
+    int val=0; 
+    while(k > 0){
+        auto it  = upper_bound(all(h), k+val ) - h.begin(); 
+        if(it >=n){
+            cout << "YES" << endl; 
+            return; 
+        }
+        val +=k; 
+        k-=vp[it].second;
+         
+    }
+    cout << "NO" << endl; 
 }
 
 int main()

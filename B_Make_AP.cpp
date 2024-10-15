@@ -27,7 +27,7 @@ void solve()
     int f = 2 * v[1] - v[2];
     if (f != 0 and f >= v[0] and f % v[0] == 0)
     {
-        cout << "1YES" << endl;
+        cout << "YES" << endl;
         return;
     }
     int s = (v[0] + v[2]) / 2;

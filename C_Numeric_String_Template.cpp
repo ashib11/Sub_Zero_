@@ -41,8 +41,8 @@ void solve()
 
     for (auto it : v1)
     {
-        map<char, int> mp1; 
-        map<int, int> mp2;  
+        map<char, int> mp1;
+        map<int, int> mp2;
         if (it.size() != n)
         {
             cout << "NO" << endl;
@@ -50,8 +50,8 @@ void solve()
         }
 
         bool isValid = true;
-        unordered_map<char, int> yo; 
-        unordered_map<int, char> yo1; 
+        unordered_map<char, int> yo;
+        unordered_map<int, char> yo1;
 
         for (int i = 0; i < n; ++i)
         {

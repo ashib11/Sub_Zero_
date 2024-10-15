@@ -29,7 +29,6 @@ void solve()
     sort(allr(v));
     for (int i = 1; i < n; i+=2)
     {
-        // cout << i << endl; 
         ll dif = v[i-1] - v[i];
         ll mn = min(dif, k);
         v[i] += mn;

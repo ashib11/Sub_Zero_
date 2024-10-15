@@ -1,0 +1,1 @@
+{"name":"Local: jiangly","url":"/home/ashib/Sub_Zero_/jiangly.cpp","tests":[{"id":1724344163649,"input":"1\n10\n1001111100\n29 55 13 51 38 25 49 29 31 20 ","output":""},{"id":1724344195120,"input":"1\n8\n10011111\n6 3 3 4 5 7 1 2 ","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashib/Sub_Zero_/jiangly.cpp","group":"local","local":true}

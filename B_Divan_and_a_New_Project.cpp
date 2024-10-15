@@ -44,10 +44,9 @@ void solve()
         {
             ans[vp[i - 1].second] = y++;
         }
-        cost += abs(2 * ans[vp[i - 1].second] * vp[i - 1].first);
+        cost += abs(2ll* ans[vp[i - 1].second] * vp[i - 1].first);
     }
     cout << cost << endl;
-    
     for (auto it : ans)
     {
         cout << it << ' ';

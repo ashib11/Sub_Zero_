@@ -1,0 +1,1 @@
+{"name":"Local: 2696_min_str_len","url":"/home/ashib/Sub_Zero_/leetcode/2696_min_str_len.cpp","tests":[{"id":1728308003383,"input":"ABFCACDB","output":"2"},{"id":1728308367197,"input":"ACBBD","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/ashib/Sub_Zero_/leetcode/2696_min_str_len.cpp","group":"local","local":true}

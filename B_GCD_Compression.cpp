@@ -40,7 +40,6 @@ void solve()
             evn.push_back(i);
         }
     }
-    // cout << od << ' ' << ev << endl;
     if (od % 2)
     {
         if (ev)
@@ -60,7 +59,6 @@ void solve()
         val = 2 - val;
         od -= val;
     }
-    // cout << (ev + od) / 2 << endl;
     for (int i = 0; i < ev; ++i)
     {
         cout << evn[i] << ' ';

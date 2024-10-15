@@ -18,27 +18,10 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-// (a>>b) a/(2^b)
-//(a<<b) a*(2^b)
-// find_by_order();
-// order_of_key();
-// n*(n-1)*(n-2)*(n-3)/3
 
 void solve()
 {
-    int n;
-    cin >> n;
-    ll sum = 0;
-    while (n--)
-    {
-        ll x;
-        cin >> x;
-        sum += x;
-    }
-    ll car = sum / 5;
-    if (sum % 5)
-        car++;
-    cout << car << endl;
+   
 }
 
 int main()

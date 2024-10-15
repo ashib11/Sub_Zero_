@@ -23,33 +23,32 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<vector<char>> v(2, vector<char>(n));
-    for (int i = 0; i < 2; ++i)
+    vector<string> v(2);
+    for (auto &i : v)
+        cin >> i;
+    int cnt = 0;
+    for (int i = 1; i < n - 1; ++i)
     {
-        for (int j = 0; j < n; ++j)
+        if (v[0][i - 1] == '.' and v[0][i + 1] == '.' and v[1][i] == '.')
         {
-            cin >> v[i][j];
+            if (v[1][i - 1] == 'x' and v[1][i + 1] == 'x')
+                cnt++;
         }
+        if (v[1][i - 1] == '.' and v[1][i + 1] == '.' and v[0][i] == '.')
+        {
+            if (v[0][i - 1] == 'x' and v[0][i + 1] == 'x')
+                cnt++;
+        }
+
     }
-    vector<int> pre(n + 1, 0);
-    for (int i = 0; i < n; ++i)
-    {
-        if (v[0][i] == '.')
-            pre[i + 1]++;
-        if (v[0][1] == '.')
-            pre[i + 1]++;
-    }
-    for (int i = 1; i <= n; ++i)
-    {
-        pre[i] += pre[i - 1];
-    }
+    cout << cnt << endl; 
 }
 
 int main()
 {
     fastIO();
     int tc = 1;
-    // cin >> tc;
+    cin >> tc;
     while (tc--)
     {
         solve();

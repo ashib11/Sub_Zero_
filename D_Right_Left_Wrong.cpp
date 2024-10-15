@@ -23,17 +23,17 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<ll> v(n);
     for (auto &i : v)
         cin >> i;
     string str;
     cin >> str;
-    vector<int> pre(n + 1, 0);
+    vector<ll> pre(n + 1, 0);
     for (int i = 1; i <= n; ++i)
     {
         pre[i] = pre[i - 1] + v[i - 1];
     }
-    vector<int> L, R;
+    vector<ll> L, R;
     for (int i = 0; i < (int)str.size(); ++i)
     {
         if (str[i] == 'L')

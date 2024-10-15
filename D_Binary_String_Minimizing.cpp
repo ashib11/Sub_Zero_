@@ -21,7 +21,7 @@ void fastIO()
 
 void solve()
 {
-    int n, k;
+    ll n, k;
     cin >> n >> k;
     string str;
     cin >> str;
@@ -44,17 +44,13 @@ void solve()
                 {
                     int indx = cnt;
                     k -= cnt;
-                    int yo = i - indx;
-                    if (yo >= 0 and yo < n)
-                        swap(str[i - indx], str[i]);
+                    swap(str[i - indx], str[i]);
                 }
                 else
                 {
                     int indx = k;
                     k = 0;
-                    int yo = i - indx;
-                    if (yo >= 0 and yo < n)
-                        swap(str[i - indx], str[i]);
+                    swap(str[i - indx], str[i]);
                 }
             }
             if (k == 0)

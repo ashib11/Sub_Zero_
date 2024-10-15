@@ -1,70 +1,56 @@
-#include <stdio.h>
-#include <stdlib.h>
-int cnt = 0;
-void MERGE(int ar[], int low, int mid, int high)
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+template <typename T>
+#define ll long long
+#define pi acos(-1.0)
+#define ull unsigned long long
+#define endl "\n"
+#define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,
+                         tree_order_statistics_node_update>;
+void fastIO()
 {
-    // int ri = mid+1, li = low;
-    int L_ar_sz = mid - low + 1;
-    int R_ar_sz = high - mid;
-    int left[L_ar_sz], right[R_ar_sz];
-    for (int i = 0; i < L_ar_sz; i++)
-    {
-        left[i] = ar[low + i];
-    }
-    for (int i = 0; i < R_ar_sz; i++)
-    {
-        right[i] = ar[mid + 1 + i];
-    }
-    int li = 0, ri = 0, mi = low;
-    while ((li < L_ar_sz) && (ri < R_ar_sz))
-    {
-        if (left[li] <= right[ri])
-        {
-            ar[mi++] = left[li++];
-            // li++;
-            // mi++;
-        }
-        else
-        {
-            ar[mi++] = right[ri++];
-            cnt++;
-        }
-    }
-    while (li < L_ar_sz)
-    {
-        ar[mi++] = left[li++];
-    }
-    while (ri < R_ar_sz)
-    {
-        ar[mi++] = right[ri++];
-    }
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 }
 
-void M_SORT(int ar[], int low, int high)
+void solve()
 {
-    if (low < high)
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &i : v)
+        cin >> i;
+    int a = 0, b = 0;
+    for (int i = 1; i < n - 1; ++i)
     {
-        int mid = (low + high) / 2;
-        M_SORT(ar, low, mid);
-        M_SORT(ar, mid + 1, high);
-        MERGE(ar, low, mid, high);
+        if (v[i] > v[i - 1] and v[i] > v[i + 1])
+            a++;
+        if (v[i] < v[i - 1] and v[i] < v[i + 1])
+            b++;
+        if (b == 41)
+        {
+            cout << i << endl;
+            cout << v[i - 1] <<  " " << v[i] << ' ' << v[i + 1] << endl;
+            return;
+        }
     }
+    cout << a << ' ' << b << endl;
 }
+
 int main()
 {
-    int ar[10] = {2, 3, 8, 6, 1};
-
-    for (int i = 0; i < 5; i++)
+    fastIO();
+    int tc = 1;
+    // cin >> tc;
+    while (tc--)
     {
-        printf("%d\t", ar[i]);
+        solve();
     }
-    printf("\nAfter Merge Sort the array is: \n");
-    M_SORT(ar, 0, 5);
-    printf("%d\n", cnt);
-    for (int i = 0; i < 5; i++)
-    {
-        printf("%d\t", ar[i]);
-    }
-
     return 0;
 }

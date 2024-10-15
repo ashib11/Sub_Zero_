@@ -18,28 +18,30 @@ void fastIO()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
-// find_by_order();
-// order_of_key();
-
+ll nsum(int n)
+{
+    return n * (n - 1) / 2;
+}
 void solve()
 {
     int n, k;
     cin >> n >> k;
-    if (n == k)
+    for (int i = 0; i < n; ++i)
     {
-        cout << "NO" << endl;
-        return;
+        int one = i, m_one = n - i;
+        if (nsum(one) + nsum(m_one) == k)
+        {
+            cout << "YES" << endl;
+            while (one--)
+                cout << "1 ";
+            while (m_one--)
+                cout << "-1 ";
+            cout << endl;
+            return;
+        }
     }
-    cout << "YES" << endl;
-    for (int i = 1; i <= n - k ; ++i)
-    {
-        cout << 1 << " ";
-    }
-    for (int i = 1; i <(n-k) ; ++i)
-    {
-        cout << -1 << " ";
-    }
-    cout << endl;
+    cout << "NO" << endl;
+    return;
 }
 
 int main()
